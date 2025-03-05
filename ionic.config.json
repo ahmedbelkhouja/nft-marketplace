@@ -1,0 +1,7 @@
+{
+  "name": "event-marketplace",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
