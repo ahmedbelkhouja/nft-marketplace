@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonApp } from '@ionic/angular/standalone';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { LayoutComponent } from './components/layout/layout.component';
 @Component({
   selector: 'app-root',
