@@ -30,6 +30,7 @@
     "ethers": "^6.13.5",
     "event-marketplace": "file:",
     "ionicons": "^7.0.0",
+    "remixicon": "^4.6.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

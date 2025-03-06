@@ -1,14 +1,10 @@
-ion-header {
-  background: transparent !important;
+ion-header, ion-toolbar {
+  --background: transparent ; /* Overrides Ionic's default */
+
+
+  box-shadow: none; /* Removes shadow */
 }
 
-ion-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: transparent;
-  border-bottom: none;
-}
 
 ion-title {
   color: #fff;
@@ -27,12 +23,9 @@ ion-button {
 
 ion-button[fill="outline"] {
   margin-left: auto;
-  border: 1px solid #fff;
-  color: #fff;
+  color: #ffffff;
   background: transparent;
+  border-width: 0px;
+
 }
 
-ion-button[fill="outline"]:hover {
-  background: #fff;
-  color: #000;
-}
