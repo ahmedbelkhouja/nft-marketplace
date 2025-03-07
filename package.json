@@ -26,7 +26,7 @@
     "@capacitor/haptics": "7.0.0",
     "@capacitor/keyboard": "7.0.0",
     "@capacitor/status-bar": "7.0.0",
-    "@ionic/angular": "^8.0.0",
+    "@ionic/angular": "^8.4.3",
     "ethers": "^6.13.5",
     "event-marketplace": "file:",
     "ionicons": "^7.4.0",
