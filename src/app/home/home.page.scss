@@ -1,14 +1,7 @@
 .hero {
   color: white;
-
-  padding: 90px;
-  display: flex; /* Use Flexbox to align content and image */
-  align-items: center; /* Vertically center the content and image */
-  justify-content: space-between; /* Space between content and image */
-
-  .hero-content {
-    max-width: 60%; /* Limit the width of the text and buttons */
-  }
+  background: #0b0b21;
+  padding: 50px;
 
   .highlight {
     color: #a855f7; // Purple text
@@ -16,12 +9,6 @@
 
   ion-button {
     margin-right: 10px;
-  }
-
-  .hero-image {
-    max-width: 35%; /* Adjust the image size */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Optional: Add rounded corners */
   }
 }
 
