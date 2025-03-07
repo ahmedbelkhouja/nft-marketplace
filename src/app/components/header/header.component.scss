@@ -36,3 +36,8 @@ ion-button[fill="outline"]:hover {
   background: #fff;
   color: #000;
 }
+.vertical-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Adds space between buttons */
+}
