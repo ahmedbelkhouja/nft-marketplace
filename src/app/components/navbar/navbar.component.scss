@@ -1,0 +1,35 @@
+ion-header, ion-toolbar {
+  --background: transparent;
+  box-shadow: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+ion-title {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+}
+
+ion-title ion-icon {
+  margin-right: 0.5rem;
+}
+
+ion-buttons {
+  display: flex;
+  align-items: center;
+  margin: 0 16px;
+}
+
+ion-button {
+  color: #fff;
+  margin: 0 0.5rem;
+}
+
+ion-button ion-icon {
+  color: #fff;
+  margin-right: 0.5rem;
+}
