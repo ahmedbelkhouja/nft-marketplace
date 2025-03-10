@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { Component, OnInit } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
+import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
-  standalone: true,
-  imports: [IonApp, IonRouterOutlet, NavbarComponent, FooterComponent],
+  imports: [HeaderComponent, FooterComponent, IonicModule],
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnInit {
   constructor() {}
+
+  ngOnInit() {}
 }
