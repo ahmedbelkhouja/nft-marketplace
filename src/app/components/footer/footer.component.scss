@@ -1,88 +1,88 @@
 footer {
-  background-color: #000000; // Dark blue background
-  color: white; // White text color
-  padding: 40px 0; // Add padding top and bottom
-  margin-top: auto; // Push the footer to the bottom
+  background-color: #000000;
+  color: white;
+  padding: 40px 0;
+  margin-top: auto;
 
   .wrapper {
-    max-width: 1200px; // Increase max-width for better spacing
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; // Add padding left and right
+    padding: 0 20px;
   }
 
   .row {
     display: flex;
-    flex-wrap: wrap; // Allow columns to wrap on smaller screens
-    gap: 20px; // Add space between columns
+    flex-wrap: wrap;
+    gap: 20px;
   }
 
   .col-12 {
-    flex: 1 1 100%; // Full width on mobile
+    flex: 1 1 100%;
   }
 
   .col-md-2, .col-md-3 {
-    flex: 1 1 45%; // Two columns on tablet
+    flex: 1 1 45%;
   }
 
   @media (min-width: 768px) {
     .col-md-2 {
-      flex: 1 1 20%; // 20% width for 2-column sections on desktop
+      flex: 1 1 20%;
     }
 
     .col-md-3 {
-      flex: 1 1 30%; // 30% width for 3-column sections on desktop
+      flex: 1 1 30%;
     }
   }
 
   h3 {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 20px; // Add space below headings
-    color: #f1c40f; // Yellow color for headings
+    margin-bottom: 20px;
+    color: #f1c40f;
   }
 
   p {
     font-size: 14px;
-    line-height: 1.6; // Improve readability
-    margin-bottom: 10px; // Add space between paragraphs
+    line-height: 1.6;
+    margin-bottom: 10px;
   }
 
   ul {
-    padding-left: 0; // Remove default padding
-    list-style: none; // Remove bullet points
+    padding-left: 0;
+    list-style: none;
   }
 
   li {
     font-size: 14px;
-    margin-bottom: 10px; // Add space between list items
-    color: #bdc3c7; // Light gray color for list items
+    margin-bottom: 10px;
+    color: #bdc3c7;
   }
 
   a {
-    color: #bdc3c7; // Light gray color for links
-    text-decoration: none; // Remove underline
-    transition: color 0.3s ease; // Smooth hover effect
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
 
     &:hover {
-      color: #f1c40f; // Yellow color on hover
+      color: #f1c40f;
     }
   }
 
   .form-group {
-    margin-top: 20px; // Add space above the input
+    margin-top: 20px;
   }
 
   .form-control {
     width: 100%;
     padding: 10px;
-    border: 1px solid #34495e; // Darker border color
-    border-radius: 5px; // Rounded corners
-    background-color: #34495e; // Darker background for input
-    color: white; // White text color
+    border: 1px solid #34495e;
+    border-radius: 5px;
+    background-color: #34495e;
+    color: white;
     font-size: 14px;
 
     &::placeholder {
-      color: #bdc3c7; // Light gray placeholder text
+      color: #bdc3c7;
     }
   }
 }

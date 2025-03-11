@@ -1,0 +1,14 @@
+<section>
+  <div class="live__auction__top">
+    <h3>Live Auction</h3>
+    <span>
+      <a routerLink="/market">Explore more</a>
+    </span>
+  </div>
+
+  <div class="nft-grid">
+    <div *ngFor="let item of nftList" class="nft-card">
+      <app-nft-card [item]="item"></app-nft-card>
+    </div>
+  </div>
+</section>

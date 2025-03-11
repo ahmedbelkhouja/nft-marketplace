@@ -6,10 +6,10 @@
       NFTs
     </ion-title>
     <ion-buttons >
-      <ion-button>Home</ion-button>
-      <ion-button routerLink="market">Market</ion-button>
-      <ion-button>Create</ion-button>
-      <ion-button>Contact</ion-button>
+      <ion-button [routerLink]="['/home']">Home</ion-button>
+      <ion-button [routerLink]="['/market']">Market</ion-button>
+      <ion-button [routerLink]="['/create']">Create</ion-button>
+      <ion-button [routerLink]="['/contact']">Contact</ion-button>
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-button fill="outline" shape="round">
