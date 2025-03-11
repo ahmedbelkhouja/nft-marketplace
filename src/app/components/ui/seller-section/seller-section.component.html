@@ -1,0 +1,11 @@
+<section>
+  <div class="seller__section__top">
+    <h3>Top Seller</h3>
+  </div>
+
+  <div class="seller-grid">
+    <div *ngFor="let item of sellerList" class="seller-card">
+      <app-seller-card [item]="item"></app-seller-card>
+    </div>
+  </div>
+</section>
