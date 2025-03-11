@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
+import { IonicModule } from '@ionic/angular';
+import { RouterOutlet } from '@angular/router'; // Import RouterOutlet
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 
@@ -8,8 +9,11 @@ import { FooterComponent } from '../footer/footer.component';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
   standalone: true,
-  imports: [IonApp, IonRouterOutlet, NavbarComponent, FooterComponent],
+  imports: [
+    IonicModule,
+    RouterOutlet, // Add RouterOutlet here
+    NavbarComponent,
+    FooterComponent,
+  ],
 })
-export class LayoutComponent {
-  constructor() {}
-}
+export class LayoutComponent {}
