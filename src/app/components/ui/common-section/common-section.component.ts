@@ -1,15 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {IonicModule} from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
 @Component({
   selector: 'app-common-section',
   templateUrl: './common-section.component.html',
   styleUrls: ['./common-section.component.scss'],
-  imports: [IonicModule]
+  imports: [IonicModule],
 })
-export class CommonSectionComponent  implements OnInit {
+export class CommonSectionComponent implements OnInit {
   @Input() title!: string;
-  constructor() { 
-  }
+  constructor() {}
   ngOnInit() {}
-
 }

@@ -73,6 +73,7 @@
 
       button {
         padding: 10px 20px;
+        margin-inline: 2px;
         font-size: 1rem;
         color: #fff;
         background-color: #4a3ac5;
@@ -92,6 +93,17 @@
             background-color: #555;
           }
         }
+      }
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        gap: 16px;
+        padding: 0;
+        margin-block: 16px;
+
+        button {
+          width: 100%;
+        }
+        
       }
     }
   }

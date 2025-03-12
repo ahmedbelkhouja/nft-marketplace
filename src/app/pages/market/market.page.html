@@ -1,1 +1,48 @@
-<app-common-section [title]="'market'"></app-common-section>
+<app-common-section [title]="'market'"> </app-common-section>
+
+<section>
+  <ion-grid>
+    <!--   Filter   -->
+    <ion-row class="ion-justify-content-between" style="padding-inline: 8vw">
+      <!-- col contaienr -->
+
+      <!-- left filter -->
+      <ion-col size="auto">
+        <ion-list>
+          <ion-item class="ion-text-center">
+            <ion-select
+              aria-label="Fruit"
+              interface="popover"
+              placeholder="Select fruit"
+            >
+              <ion-select-option value="apples">Apples</ion-select-option>
+              <ion-select-option value="oranges">Oranges</ion-select-option>
+              <ion-select-option value="bananas">Bananas</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+      <!-- right filter -->
+      <ion-col size="auto">
+        <ion-list>
+          <ion-item class="ion-text-center">
+            <ion-select interface="popover" placeholder="Sort By">
+              <ion-select-option value="apples">Apples</ion-select-option>
+              <ion-select-option value="oranges">Oranges</ion-select-option>
+              <ion-select-option value="bananas">Bananas</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+    </ion-row>
+        
+  <div class="nft-grid ion-padding">
+    <div *ngFor="let item of nftList" class="nft-card">
+      <app-nft-card [item]="item"></app-nft-card>
+    </div>
+  </div>
+
+  </ion-grid>
+</section>
