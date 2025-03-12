@@ -1,0 +1,11 @@
+.nft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 20px;
+    align-items: center ;
+  }
+
+  .nft-card {
+    display: flex;
+    justify-content: center;
+  }
