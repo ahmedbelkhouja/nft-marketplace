@@ -1,0 +1,46 @@
+.card {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background: #1d1d26;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .avatar {
+    margin-right: 16px;
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .infos {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    h6 {
+      margin: 0;
+
+      &:first-child {
+        color: #ffffff;
+        font-size: 1rem;
+      }
+
+      &:last-child {
+        color: #4a3ac5;
+        font-size: 0.9rem;
+        &::before {
+          content: '$ ';
+        }
+      }
+    }
+  }
+}
