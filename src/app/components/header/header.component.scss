@@ -1,43 +1,83 @@
-::ng-deep ion-header {
+:host {
+  display: block;
+  width: 100%;
+}
+
+ion-header {
   background: #5601f4;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 ion-toolbar {
+  --background: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: transparent;
-  border-bottom: none;
+  padding: 0 16px;
 }
 
 ion-title {
   color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 ion-buttons {
   display: flex;
-  justify-content: center;
-  flex: 1;
+  align-items: center;
+  gap: 1rem;
 }
 
 ion-button {
-  color: #fff;
-  margin: 0 0.5rem;
+  --color: #fff;
+  font-size: 1rem;
+
+  &[fill="outline"] {
+    --border-color: #fff;
+    --background: transparent;
+    --color: #fff;
+
+    &:hover {
+      --background: #fff;
+      --color: #5601f4;
+    }
+  }
 }
 
-ion-button[fill="outline"] {
-  margin-left: auto;
-  border: 1px solid #fff;
-  color: #fff;
-  background: transparent;
-}
-
-ion-button[fill="outline"]:hover {
-  background: #fff;
-  color: #000;
-}
+// Mobile menu styles
 .vertical-buttons {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Adds space between buttons */
+  gap: 1rem;
+  padding: 1rem;
+}
+
+// Media queries for responsive design
+@media (max-width: 768px) {
+  ion-header ion-toolbar {
+    padding: 0 8px;
+  }
+
+  ion-title {
+    font-size: 1.2rem;
+  }
+
+  ion-button {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .ion-hide-md-up {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .ion-hide-md-down {
+    display: none !important;
+  }
 }
