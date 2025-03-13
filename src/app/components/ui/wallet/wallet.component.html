@@ -1,0 +1,23 @@
+<app-common-section title="Connect Wallet"></app-common-section>
+
+<section>
+  <div class="container">
+    <div class="wallet-header">
+      <h3>Connect your wallet</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        Minima numquam nisi, quam obcaecati a provident voluptas sequi
+        unde officiis placeat!
+      </p>
+    </div>
+
+    <div class="wallet-grid">
+      <div class="wallet__item" *ngFor="let item of walletdata">
+        <span>
+          <i [class]="item.icon"></i>
+        </span>
+        <h5>{{item.title}}</h5>
+        <p>{{item.desc}}</p>
+      </div>
+    </div>
+  </div>
