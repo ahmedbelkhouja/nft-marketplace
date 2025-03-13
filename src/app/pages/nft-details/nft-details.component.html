@@ -1,3 +1,49 @@
-<p>
-  nft-details works!
-</p>
+<app-common-section [title]="nft?.title"> </app-common-section>
+<ion-grid>
+  <ion-row class="padding-18">
+    <ion-col size-lg="6" size-xs="12">
+      <img [src]="nft?.imgUrl" alt="NFT Image" class="single__nft-img" />
+    </ion-col>
+    <ion-col size-lg="6" size-xs="12">
+      <div class="single__nft__content">
+        <h2>{{ nft.title }}</h2>
+
+        <div class="single__nft-icon__content">
+          <div class="single__nft-seen ">
+            <span> <i class="ri-eye-line"></i> 234 </span>
+            <span> <i class="ri-heart-line"></i> 123 </span>
+          </div>
+
+          <div class="single__nft-more">
+            <span>
+              <i class="ri-send-plane-line"></i>
+            </span>
+            <span>
+              <i class="ri-more-2-line"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="nft__creator">
+          <div class="creator__img">
+            <img [src]="nft.creatorImg" alt="" class="w-100" />
+          </div>
+
+          <div class="creator__detail">
+            <p>Created By</p>
+            <h6>{{ nft.creator }}</h6>
+          </div>
+        </div>
+
+        <p class="">{{ nft.desc }}</p>
+        <ion-col size="">
+
+            <button class="singleNft-btn ">
+                <i class="ri-shopping-bag-line"></i>
+                <a routerLink="/wallet">Place a Bid</a>
+            </button>
+        </ion-col>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,7 +1,7 @@
 <div class="card">
-  <img [src]="item.imgUrl" alt="{{ item.title }}" class="nft" />
+  <img [src]="item.imgUrl" alt="{{ item.title }}" class="nft"  />
   <div class="card-body">
-    <h5 class="ion-text-center">{{ item.title }}</h5>
+    <a [routerLink]="['/market', item.id ]"><h5 class="ion-text-center" >{{ item.title }}</h5></a>
     <div class="infos">
       <img [src]="item.creatorImg" alt="{{ item.creator }}" class="avatar" />
       <div class="info">
