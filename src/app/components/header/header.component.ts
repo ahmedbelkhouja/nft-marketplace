@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { RouterLink } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   imports: [IonicModule, RouterLink],
+  standalone: true
 })
-export class HeaderComponent implements OnInit {
-  constructor() {}
+export class HeaderComponent {
+  constructor(private menuController: MenuController) {}
 
-  ngOnInit() {}
+  async toggleMenu() {
+    await this.menuController.toggle();
+  }
 }
