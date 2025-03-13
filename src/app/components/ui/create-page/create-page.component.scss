@@ -108,3 +108,27 @@ section {
     font-size: 0.85rem;
   }
 }
+.create__item {
+  padding: 30px;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background: #5142fc;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 30px auto 0;
+
+  &:hover {
+    background: #4235e8;
+    transform: translateY(-2px);
+  }
+}
