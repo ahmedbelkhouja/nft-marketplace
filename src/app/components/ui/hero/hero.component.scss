@@ -1,14 +1,12 @@
 .hero {
   color: white;
 
-  padding: 90px;
+  padding: 128px;
   display: flex; /* Use Flexbox to align content and image */
   align-items: center; /* Vertically center the content and image */
   justify-content: space-between; /* Space between content and image */
 
-  .hero-content {
-    max-width: 60%; /* Limit the width of the text and buttons */
-  }
+ 
 
   .highlight {
     color: #a855f7; // Purple text
@@ -17,10 +15,22 @@
   ion-button {
     margin-right: 10px;
   }
-
+  .hero-text {
+   margin: auto;
+  }
   .hero-image {
-    max-width: 35%; /* Adjust the image size */
-    height: auto; /* Maintain aspect ratio */
+  
     border-radius: 10px; /* Optional: Add rounded corners */
   }
+}
+@media screen and (max-width: 768px) {
+  .hero {
+    padding: 64px;
+    flex-direction: column; /* Stack content and image */
+     /* Center text */
+  }
+  .hero-image {
+    margin-top: 32px; /* Add space between image and text */
+  }
+  
 }
