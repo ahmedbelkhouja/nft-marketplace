@@ -1,112 +1,111 @@
 .card {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-    background-color: #1d1d26;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  background-color: #1d1d26;
+  padding: 16px;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  img {
+    width: 280px; // Make image smaller
+    height: auto;
+    display: block;
+    margin: 0 auto; // Center the image
+    border-radius: 8px; // Optional: adds rounded corners to the image
+  }
+
+  .card-body {
     padding: 16px;
-  
-    &:hover {
-      transform: translateY(-5px);
+
+    h5 {
+      margin: 0 0 16px; // Add margin-bottom to create space below the title
+      font-size: 1.25rem;
+      color: #ffffff;
     }
-  
-    img {
-      width: 80%; // Make image smaller
-      height: auto;
-      display: block;
-      margin: 0 auto; // Center the image
-      border-radius: 8px; // Optional: adds rounded corners to the image
-    }
-  
-    .card-body {
-      padding: 16px;
-  
-      h5 {
-        margin: 0 0 16px; // Add margin-bottom to create space below the title
-        font-size: 1.25rem;
-        color: #ffffff;
+
+    .infos {
+      display: flex;
+      gap: 16px; // Adjust gap between items
+      align-items: center; // Align items vertically
+      margin: 0px auto;
+
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 8px; // Add margin to separate avatar from text
       }
-  
-      .infos {
+
+      .info {
         display: flex;
-        gap: 16px; // Adjust gap between items
-        align-items: center; // Align items vertically
-        margin-right: 46px;
-  
-        .avatar {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          margin-right: 8px; // Add margin to separate avatar from text
-        }
-  
-        .info {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start; // Align text to the left
-          gap:calc(0.5rem + 1px); // Adjust gap between items
-  
-          p {
-            margin: 0;
-            font-size: 1rem;
-            color: #666;
-  
-            span {
-              color: #333;
-              font-weight: bold;
-            }
-          }
-  
-          h6 {
-            margin: 0;
-            font-size: 1rem;
-            color: #ffffff;
-          }
-        }
-      }
-  
-      .buttons {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 16px;
-        border-top: 1px solid #1d1d26;
-  
-        button {
-          padding: 10px 20px;
-          margin-inline: 2px;
+        flex-direction: column;
+        align-items: flex-start; // Align text to the left
+        gap: calc(0.5rem + 1px); // Adjust gap between items
+
+        p {
+          margin: 0;
           font-size: 1rem;
-          color: #fff;
-          background-color: #4a3ac5;
-          border: none;
-          border-radius: 20px;
-          cursor: pointer;
-          transition: background-color 0.2s ease-in-out;
-  
-          &:hover {
-            background-color: #3000b4;
-          }
-  
-          &.secondary {
-            background-color: transparent;
-  
-            &:hover {
-              background-color: #555;
-            }
+          color: #666;
+
+          span {
+            color: #333;
+            font-weight: bold;
           }
         }
-        @media screen and (max-width: 768px) {
-          flex-direction: column;
-          gap: 16px;
-          padding: 0;
-          margin-block: 16px;
-  
-          button {
-            width: 100%;
+
+        h6 {
+          margin: 0;
+          font-size: 1rem;
+          color: #ffffff;
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      border-top: 1px solid #1d1d26;
+
+      button {
+        padding: 10px 20px;
+        margin-inline: 2px;
+        font-size: 1rem;
+        color: #fff;
+        background-color: #4a3ac5;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+
+        &:hover {
+          background-color: #3000b4;
+        }
+
+        &.secondary {
+          background-color: transparent;
+
+          &:hover {
+            background-color: #555;
           }
-  
+        }
+      }
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        gap: 16px;
+        padding: 0;
+        margin-block: 16px;
+
+        button {
+          width: 100%;
         }
       }
     }
   }
-  
+}
