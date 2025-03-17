@@ -46,14 +46,12 @@
 
 .nft__creator {
   background: #343444;
-  padding: 15px;
+  padding: 15px 0px;
   border-radius: 7px;
-  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
-
 }
 
 .creator__img {
@@ -117,7 +115,9 @@
   color: #5142fc;
 }
 
-.single__nft__content{ padding: 2rem;}
+.single__nft__content {
+  padding: 2rem;
+}
 
 @media only screen and (max-width: 992px) {
   .single__nft__content h2 {
@@ -152,17 +152,15 @@
     width: 100%;
     padding: 0px 2em;
   }
-  
 }
 
-@media  screen and (min-width : 525px ) and (max-width : 922px) {
+@media screen and (min-width: 525px) and (max-width: 922px) {
   .single__nft-img {
     border-radius: 8px;
     width: 100%;
     padding: 0px 2em;
   }
-  .padding-18{
+  .padding-18 {
     padding: 0px 5rem;
   }
-  
 }
