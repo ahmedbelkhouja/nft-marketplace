@@ -1,0 +1,122 @@
+:host {
+  --background: #13131e;
+}
+
+ion-header {
+  ion-toolbar {
+    --background: #343444;
+    --color: #fff;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+    --padding-start: 16px;
+    --padding-end: 16px;
+
+    ion-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 0;
+    }
+
+    ion-buttons {
+      margin: 0;
+
+      ion-button {
+        --padding-start: 8px;
+        --padding-end: 8px;
+        --padding-top: 8px;
+        --padding-bottom: 8px;
+        height: 35px;
+        width: 35px;
+        font-size: 1.2rem;
+        margin: 0;
+      }
+    }
+  }
+}
+
+
+ion-content {
+  --background: #13131e;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+
+  h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #fff;
+    opacity: 0.7;
+    margin-bottom: 20px;
+  }
+}
+
+ion-item {
+  --background: #343444;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --highlight-height: 1px;
+  --highlight-color-focused: #5142fc;
+  margin-bottom: 16px;
+  border-radius: 8px;
+
+  ion-label {
+    --color: #fff !important;
+  }
+
+  ion-input {
+    --color: #fff;
+    --placeholder-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+ion-list {
+  background: #343444;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 20px 0;
+
+  ion-item {
+    margin-bottom: 0;
+    --border-color: rgba(255, 255, 255, 0.05);
+
+    &:last-child {
+      --border-style: none;
+    }
+
+    ion-label {
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    ion-text {
+      color: #fff;
+      font-weight: 500;
+    }
+  }
+}
+
+ion-button {
+  --background: #5142fc;
+  --background-hover: #4235e8;
+  --border-radius: 8px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  margin-top: 20px;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 576px) {
+  ion-content {
+    --padding-start: 16px;
+    --padding-end: 16px;
+  }
+
+  ion-item {
+    margin-bottom: 12px;
+  }
+}

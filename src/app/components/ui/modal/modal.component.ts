@@ -15,8 +15,8 @@ interface NFTItem {
 
 @Component({
   selector: 'app-bid-modal',
-  templateUrl: './bid-modal.component.html',
-  styleUrls: ['./bid-modal.component.scss'],
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.scss'],
   standalone: true,
   imports: [IonicModule, FormsModule, CommonModule]
 })
@@ -42,11 +42,12 @@ export class BidModalComponent {
   get total(): number {
     const subtotal = (this.bidAmount || 0) * this.quantity;
     const serviceFee = (subtotal * this.serviceFeePercentage) / 100;
-    return subtotal + serviceFee;
+    return Number((subtotal + serviceFee).toFixed(2));
   }
+
   get serviceFee(): number {
     const subtotal = (this.bidAmount || 0) * this.quantity;
-    return (subtotal * this.serviceFeePercentage) / 100;
+    return Number((subtotal * this.serviceFeePercentage / 100).toFixed(2));
   }
 
   closeModal() {

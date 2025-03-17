@@ -2,14 +2,14 @@
   <ion-toolbar>
     <ion-title>Place a Bid</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="closeModal()">Close</ion-button>
+      <ion-button (click)="closeModal()">X</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <h3>{{ nft?.title }}</h3>
-  <p>Current Price: {{ nft?.currentBid }} ETH</p>
+  <h3>{{ nft.title }}</h3>
+  <p>Current Price: {{ nft.currentBid }} ETH</p>
 
   <form (ngSubmit)="placeBid()">
     <ion-item>
