@@ -3,17 +3,17 @@ import { IonicModule } from '@ionic/angular';
 
 import { CreateItemComponent } from './create-page.component';
 
-describe('CreatePageComponent', () => {
-  let component: CreatePageComponent;
-  let fixture: ComponentFixture<CreatePageComponent>;
+describe('CreateItemComponent', () => {
+  let component: CreateItemComponent;
+  let fixture: ComponentFixture<CreateItemComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreatePageComponent ],
+      declarations: [ CreateItemComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CreatePageComponent);
+    fixture = TestBed.createComponent(CreateItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
