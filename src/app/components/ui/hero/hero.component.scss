@@ -6,10 +6,16 @@
   align-items: center; /* Vertically center the content and image */
   justify-content: space-between; /* Space between content and image */
 
- 
+
 
   .highlight {
-    color: #a855f7; // Purple text
+    background: linear-gradient(-45deg, #e250e5, #4b50e6, #e250e5, #4b50e6);
+    background-size: 100% 100%;
+    background-clip: text;
+    -webkit-text-stroke: 3px transparent;
+    -webkit-text-fill-color: #14141f;
+    margin-left: 7px !important;
+    display: inline-block;
   }
 
   ion-button {
@@ -19,7 +25,7 @@
    margin: auto;
   }
   .hero-image {
-  
+
     border-radius: 10px; /* Optional: Add rounded corners */
   }
 }
@@ -32,5 +38,5 @@
   .hero-image {
     margin-top: 32px; /* Add space between image and text */
   }
-  
+
 }

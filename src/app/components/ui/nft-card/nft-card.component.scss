@@ -1,111 +1,88 @@
-.card {
+ion-card {
+  --background: #1d1d26;
+  margin: 16px;
   border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
-  background-color: #1d1d26;
-  padding: 16px;
 
   &:hover {
     transform: translateY(-5px);
   }
 
-  img {
-    width: 80%; // Make image smaller
-    height: auto;
-    display: block;
-    margin: 0 auto; // Center the image
-    border-radius: 8px; // Optional: adds rounded corners to the image
+  ion-img {
+    width: 80%;
+    margin: 16px auto;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+}
+
+ion-card-content {
+  padding: 16px;
+
+  ion-item {
+    --background: transparent;
+    --padding-start: 0;
+    --inner-padding-end: 0;
+
+    ion-label {
+      color: #ffffff;
+
+      p {
+        color: #666;
+        margin-bottom: 4px;
+      }
+
+      h3 {
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 0;
+      }
+    }
   }
 
-  .card-body {
-    padding: 16px;
+  .info-container {
+    margin: 16px 0;
 
-    h5 {
-      margin: 0 0 16px; // Add margin-bottom to create space below the title
-      font-size: 1.25rem;
-      color: #ffffff;
+    ion-avatar {
+      width: 40px;
+      height: 40px;
     }
+  }
 
-    .infos {
-      display: flex;
-      gap: 16px; // Adjust gap between items
-      align-items: center; // Align items vertically
-      margin-right: 46px;
+  .button-container {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 16px;
 
-      .avatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin-right: 8px; // Add margin to separate avatar from text
+    ion-button {
+      flex: 1;
+      margin: 0;
+      --border-radius: 20px;
+
+      &[color="primary"] {
+        --background: #4a3ac5;
+        --background-hover: #3000b4;
       }
 
-      .info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start; // Align text to the left
-        gap:calc(0.5rem + 1px); // Adjust gap between items
-
-        p {
-          margin: 0;
-          font-size: 1rem;
-          color: #666;
-
-          span {
-            color: #333;
-            font-weight: bold;
-          }
-        }
-
-        h6 {
-          margin: 0;
-          font-size: 1rem;
-          color: #ffffff;
-        }
+      &[fill="outline"] {
+        --border-color: #4a3ac5;
+        --color: #fff;
+        --background-hover: rgba(74, 58, 197, 0.1);
       }
     }
+  }
+}
 
-    .buttons {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px;
-      border-top: 1px solid #1d1d26;
+@media (max-width: 768px) {
+  .button-container {
+    flex-direction: column;
 
-      button {
-        padding: 10px 20px;
-        margin-inline: 2px;
-        font-size: 1rem;
-        color: #fff;
-        background-color: #4a3ac5;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
-        transition: background-color 0.2s ease-in-out;
-
-        &:hover {
-          background-color: #3000b4;
-        }
-
-        &.secondary {
-          background-color: transparent;
-
-          &:hover {
-            background-color: #555;
-          }
-        }
-      }
-      @media screen and (max-width: 768px) {
-        flex-direction: column;
-        gap: 16px;
-        padding: 0;
-        margin-block: 16px;
-
-        button {
-          width: 100%;
-        }
-
-      }
+    ion-button {
+      width: 100%;
     }
   }
 }

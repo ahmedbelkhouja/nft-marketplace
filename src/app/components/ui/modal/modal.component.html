@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Place a Bid</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h3>{{ nft?.title }}</h3>
+  <p>Current Price: {{ nft?.currentBid }} ETH</p>
+
+  <form (ngSubmit)="placeBid()">
+    <ion-item>
+      <ion-label position="floating">Bidding Amount</ion-label>
+      <ion-input type="number" [(ngModel)]="bidAmount" name="bidAmount" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Quantity</ion-label>
+      <ion-input type="number" [(ngModel)]="quantity" name="quantity" required></ion-input>
+    </ion-item>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>You must bid at least:</ion-label>
+        <ion-text>{{ minBid }} ETH</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Service Fee:</ion-label>
+        <ion-text>{{ serviceFee }} ETH</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Total:</ion-label>
+        <ion-text>{{ total }} ETH</ion-text>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="full" type="submit">Place Bid</ion-button>
+  </form>
+</ion-content>
