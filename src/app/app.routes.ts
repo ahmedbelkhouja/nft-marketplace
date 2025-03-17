@@ -38,4 +38,9 @@ export const routes: Routes = [
         (m) => m.NftDetailsComponent
       ),
   },
+  {
+  path: 'connect',
+  loadComponent: () =>
+    import('./pages/connect/connect.page').then((m) => m.ConnectPage),
+},
 ];
