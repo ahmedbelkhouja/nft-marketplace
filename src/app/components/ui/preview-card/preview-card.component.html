@@ -1,0 +1,21 @@
+<div class="card">
+  <img [src]="item.imgUrl" alt="{{ item.title }}" class="nft"  />
+  <div class="card-body">
+    <a ><h5 class="ion-text-center" >{{ item.title }}</h5></a>
+    <div class="infos">
+      <img [src]="item.creatorImg" alt="{{ item.creator }}" class="avatar" />
+      <div class="info">
+        <p>Owned by</p>
+        <h6>{{ item.creator }}</h6>
+      </div>
+      <div class="info">
+        <p>Price</p>
+        <h6>{{ item.currentBid }} ETH</h6>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="btn">Place a bid</button>
+      <button class="btn secondary">View History</button>
+    </div>
+  </div>
+</div>
