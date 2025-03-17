@@ -1,21 +1,33 @@
-<div class="card">
-  <img [src]="item.imgUrl" alt="{{ item.title }}" class="nft"  />
-  <div class="card-body">
-    <a [routerLink]="['/market', item.id ]"><h5 class="ion-text-center" >{{ item.title }}</h5></a>
-    <div class="infos">
-      <img [src]="item.creatorImg" alt="{{ item.creator }}" class="avatar" />
-      <div class="info">
+<ion-card>
+  <ion-img [src]="item.imgUrl" [alt]="item.title"></ion-img>
+  <ion-card-content>
+    <ion-item lines="none" [routerLink]="['/market', item.id]">
+      <ion-label class="ion-text-center">{{ item.title }}</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" class="info-container">
+      <ion-avatar slot="start">
+        <ion-img [src]="item.creatorImg" [alt]="item.creator"></ion-img>
+      </ion-avatar>
+      <ion-label>
         <p>Owned by</p>
-        <h6>{{ item.creator }}</h6>
-      </div>
-      <div class="info">
+        <h3>{{ item.creator }}</h3>
+      </ion-label>
+      <ion-label slot="end">
         <p>Price</p>
-        <h6>{{ item.currentBid }} ETH</h6>
-      </div>
+        <h3>{{ item.currentBid }} ETH</h3>
+      </ion-label>
+    </ion-item>
+
+    <div class="button-container">
+      <ion-button expand="block" color="primary" (click)="openBidModal()">
+
+        Place a bid
+      </ion-button>
+      <ion-button expand="block" fill="outline">
+
+        View History
+      </ion-button>
     </div>
-    <div class="buttons">
-      <button class="btn">Place a bid</button>
-      <button class="btn secondary">View History</button>
-    </div>
-  </div>
-</div>
+  </ion-card-content>
+</ion-card>
