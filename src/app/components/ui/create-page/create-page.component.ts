@@ -16,7 +16,7 @@ export class CreateItemComponent implements OnInit {
     id: '01',
     title: 'Guard',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-    imgUrl: 'assets/images/default-img.png', // Default image
+    imgUrl: 'assets/images/Image-not-found.png', // Default image
     creator: 'Trista Francis',
     creatorImg: 'assets/images/ava-01.png',
     currentBid: 7.89,
