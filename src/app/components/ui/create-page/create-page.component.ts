@@ -30,7 +30,7 @@ export class CreateItemComponent implements OnInit {
     expDate: '',
     title: '',
     description: '',
-    imgUrl: '',
+    imgUrl: 'assets/images/Image-not-found.png',
   };
 
   // Computed property to merge previewData with formData dynamically
