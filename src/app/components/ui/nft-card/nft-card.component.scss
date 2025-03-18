@@ -9,7 +9,7 @@ ion-card {
     transform: translateY(-5px);
   }
 
-  ion-img {
+  .ion-img {
     width: 80%;
     margin: 16px auto;
     border-radius: 8px;
@@ -43,7 +43,6 @@ ion-card-content {
   }
 
   .info-container {
-    margin: 16px 0;
 
     ion-avatar {
       width: 40px;

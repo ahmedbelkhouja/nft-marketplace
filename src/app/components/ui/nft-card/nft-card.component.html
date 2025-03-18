@@ -1,5 +1,5 @@
 <ion-card>
-  <ion-img [src]="item.imgUrl" [alt]="item.title"></ion-img>
+  <ion-img [src]="item.imgUrl" [alt]="item.title" class="nft__img"></ion-img>
   <ion-card-content>
     <ion-item lines="none" [routerLink]="['/market', item.id]">
       <ion-label class="ion-text-center">{{ item.title }}</ion-label>
