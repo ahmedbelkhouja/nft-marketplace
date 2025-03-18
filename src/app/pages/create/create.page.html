@@ -1,3 +1,91 @@
 <app-common-section title="Create Item"></app-common-section>
 
-<app-create-page></app-create-page>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <h5 class="mb-4 text-light">Preview Item</h5>
+        <app-preview-card [item]="item"></app-preview-card>
+      </div>
+
+      <div class="col-lg-9 col-md-8 col-sm-6">
+        <div class="create__item">
+          <form>
+            <div class="form__input">
+              <label>Upload File</label>
+              <input
+                type="file"
+                id="imgUrl"
+                (change)="updateImageUrl($event)"
+                name="imgUrl"
+                accept="image/*"
+              />
+            </div>
+
+            <div class="form__input">
+              <label>Price</label>
+              <input
+                type="number"
+                placeholder="Enter price (ETH)"
+                [(ngModel)]="formData.price"
+                name="price"
+              />
+            </div>
+
+            <div class="form__input">
+              <label>Minimum Bid</label>
+              <input
+                type="number"
+                placeholder="Enter minimum bid"
+                [(ngModel)]="formData.minBid"
+                name="minBid"
+              />
+            </div>
+
+            <div class="d-flex align-items-center gap-4">
+              <div class="form__input w-50">
+                <label>Starting Date</label>
+                <input
+                  type="date"
+                  [(ngModel)]="formData.startDate"
+                  name="startDate"
+                />
+              </div>
+
+              <div class="form__input w-50">
+                <label>Expiration Date</label>
+                <input
+                  type="date"
+                  [(ngModel)]="formData.expDate"
+                  name="expDate"
+                />
+              </div>
+            </div>
+
+            <div class="form__input">
+              <label>Title</label>
+              <input
+                type="text"
+                placeholder="Enter title"
+                [(ngModel)]="formData.title"
+                name="title"
+              />
+            </div>
+
+            <div class="form__input">
+              <label>Description</label>
+              <textarea
+                rows="7"
+                placeholder="Enter description"
+                class="w-100"
+                [(ngModel)]="formData.description"
+                name="description"
+              ></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary mt-4" oncl>Create Item</button>
+  </div>
+</section>

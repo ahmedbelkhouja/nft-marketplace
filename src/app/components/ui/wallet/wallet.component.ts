@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CommonSectionComponent } from '../common-section/common-section.component';
+
 
 interface WalletData {
   title: string;
@@ -13,7 +13,7 @@ interface WalletData {
   templateUrl: './wallet.component.html',
   styleUrls: ['./wallet.component.scss'],
   standalone: true,
-  imports: [CommonModule, CommonSectionComponent]
+  imports: [CommonModule]
 })
 export class WalletComponent   {
 
