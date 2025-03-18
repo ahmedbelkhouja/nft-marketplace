@@ -21,7 +21,7 @@ interface NFTnft {
   selector: 'app-nft-details',
   templateUrl: './nft-details.component.html',
   styleUrls: ['./nft-details.component.scss'],
-  imports: [CommonSectionComponent , IonicModule , RouterModule, BidModalComponent],
+  imports: [CommonSectionComponent , IonicModule , RouterModule],
 })
 export class NftDetailsComponent  implements OnInit {
   nft : any;
