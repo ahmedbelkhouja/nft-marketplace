@@ -39,8 +39,9 @@ export const routes: Routes = [
       ),
   },
   {
-  path: 'connect',
-  loadComponent: () =>
-    import('./pages/connect/connect.page').then((m) => m.ConnectPage),
-},
+    path: 'connect',
+    loadComponent: () =>
+      import('./pages/connect/connect.page').then((m) => m.ConnectPage),
+  },
+  
 ];
