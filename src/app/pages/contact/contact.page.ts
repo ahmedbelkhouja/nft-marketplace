@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {IonicModule}from '@ionic/angular';
-import { SendMessageComponent } from 'src/app/components/ui/send-message/send-message.component';
-
+import {CommonSectionComponent} from '../../components/ui/common-section/common-section.component';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.page.html',
@@ -13,12 +12,21 @@ import { SendMessageComponent } from 'src/app/components/ui/send-message/send-me
     IonicModule,
     CommonModule,
     FormsModule,
-    SendMessageComponent
+    CommonSectionComponent
   ]
 })
-export class ContactPage implements OnInit {
-  constructor() { }
+export class ContactPage  {
+  name: string = '';
+  email: string = '';
+  subject: string = '';
+  message: string = '';
 
-  ngOnInit() {
+  handleSubmit() {
+    console.log('Form Submitted:', {
+      name: this.name,
+      email: this.email,
+      subject: this.subject,
+      message: this.message,
+    });
   }
 }
