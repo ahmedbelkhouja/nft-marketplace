@@ -36,13 +36,10 @@
         </div>
 
         <p class="">{{ nft.desc }}</p>
-        <ion-col size="">
-          <button class="singleNft-btn">
-            <i class="ri-shopping-bag-line"></i>
-            <a (click)="openBidModal()">Place a Bid</a>
-            
-          </button>
-        </ion-col>
+        <button class="singleNft-btn" (click)="openBidModal()">
+          <i class="ri-shopping-bag-line"></i>
+          Place a Bid
+        </button>
       </div>
     </ion-col>
   </ion-row>
