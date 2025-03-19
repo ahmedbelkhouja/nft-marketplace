@@ -1,0 +1,34 @@
+ion-card{
+    margin: 10px;
+    background-color:#18181b;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    color: white;
+    .table{
+        width: 100%;
+        border-collapse: collapse;
+        th, td{
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+        
+
+    }
+    .card-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        .card-title{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .card-date{
+            font-size: 14px;
+            color: #999;
+        }
+    }
+
+}
