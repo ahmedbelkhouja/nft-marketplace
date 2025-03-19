@@ -5,6 +5,7 @@ import { NFT__DATA } from 'src/assets/data/data';
 import {IonicModule,ModalController} from '@ionic/angular';
 import {RouterModule} from '@angular/router';
 import { BidModalComponent } from 'src/app/components/ui/modal/modal.component';
+import { HistoryComponent } from "../history/history.component";
 
 
 interface NFTnft {
@@ -21,7 +22,7 @@ interface NFTnft {
   selector: 'app-nft-details',
   templateUrl: './nft-details.component.html',
   styleUrls: ['./nft-details.component.scss'],
-  imports: [CommonSectionComponent , IonicModule , RouterModule],
+  imports: [CommonSectionComponent, IonicModule, RouterModule, HistoryComponent],
 })
 export class NftDetailsComponent  implements OnInit {
   nft : any;
@@ -30,10 +31,8 @@ export class NftDetailsComponent  implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
 
     this.nft = NFT__DATA.find(nft => nft.id === id);
-    console.log(this.nft);
   }
   async openBidModal() {
     const modal = await this.modalController.create({
@@ -46,9 +45,7 @@ export class NftDetailsComponent  implements OnInit {
     await modal.present();
 
     const { data } = await modal.onWillDismiss();
-    if (data) {
-      console.log('Bid placed:', data);
-    }
+  
   }
 
 }

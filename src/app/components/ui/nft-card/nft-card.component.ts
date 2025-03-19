@@ -23,7 +23,7 @@ interface NFTItem {
 export class NftCardComponent {
   @Input() item!: NFTItem;
 
-  constructor(private modalController: ModalController) {}
+  constructor(private modalController: ModalController ) {}
 
   async openBidModal() {
     const modal = await this.modalController.create({
@@ -40,4 +40,5 @@ export class NftCardComponent {
       console.log('Bid placed:', data);
     }
   }
+  
 }

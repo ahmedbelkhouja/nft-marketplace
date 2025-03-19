@@ -43,5 +43,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/connect/connect.page').then((m) => m.ConnectPage),
   },
+  {path: 'history/:id',
+    loadComponent: () =>
+      import('./pages/history/history.component').then((m) => m.HistoryComponent),
+  }
   
 ];
