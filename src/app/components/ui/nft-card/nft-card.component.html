@@ -1,7 +1,7 @@
 <ion-card>
   <ion-img [src]="item.imgUrl" [alt]="item.title" class="nft__img"></ion-img>
   <ion-card-content>
-    <ion-item lines="none" [routerLink]="['/market', item.id]">
+    <ion-item lines="none" >
       <ion-label class="ion-text-center">{{ item.title }}</ion-label>
     </ion-item>
 
@@ -24,9 +24,9 @@
 
         Place a bid
       </ion-button>
-      <ion-button expand="block" fill="outline" [routerLink]="['/history', item.id]">
+      <ion-button expand="block" fill="outline" [routerLink]="['/detail', item.id]">
 
-        View History
+        View Details
       </ion-button>
     </div>
   </ion-card-content>

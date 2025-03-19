@@ -32,7 +32,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'market/:id',
+    path: 'detail/:id',
     loadComponent: () =>
       import('./pages/nft-details/nft-details.component').then(
         (m) => m.NftDetailsComponent
