@@ -15,7 +15,7 @@ export const routes: Routes = [
 
   {
     path: 'market',
-    loadChildren: () =>
+    loadComponent: () =>
       import('./pages/market/market.page').then((m) => m.MarketPage),
   },
 
@@ -32,7 +32,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'detail/:id',
+    path: 'market/:id',
     loadComponent: () =>
       import('./pages/nft-details/nft-details.component').then(
         (m) => m.NftDetailsComponent
@@ -59,5 +59,5 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/sign-up/sign-up.component').then((m) => m.SignUpComponent),
   }
-  
+
 ];
