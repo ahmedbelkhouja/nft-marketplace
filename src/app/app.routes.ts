@@ -15,7 +15,7 @@ export const routes: Routes = [
 
   {
     path: 'market',
-    loadComponent: () =>
+    loadChildren: () =>
       import('./pages/market/market.page').then((m) => m.MarketPage),
   },
 
@@ -46,6 +46,18 @@ export const routes: Routes = [
   {path: 'history/:id',
     loadComponent: () =>
       import('./pages/history/history.component').then((m) => m.HistoryComponent),
+  }
+  ,
+  {
+    path : 'login',
+    loadComponent: () =>
+      import('./pages/login/login.component').then((m) => m.LoginComponent),
+  }
+  ,
+  {
+    path : 'signup',
+    loadComponent: () =>
+      import('./pages/sign-up/sign-up.component').then((m) => m.SignUpComponent),
   }
   
 ];
