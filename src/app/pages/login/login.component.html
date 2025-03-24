@@ -47,8 +47,13 @@
               expand="full"
               type="submit"
               [disabled]="loginForm.invalid"
-              >Login</ion-button
-            >
+              >Login</ion-button>
+              <div class="router-link">
+                <p>
+                  Don't have an account?
+                 <a [routerLink]="['/signup']">Sign-Up</a>
+                </p>
+              </div>
           </form>
         </ion-card-content>
       </ion-card>

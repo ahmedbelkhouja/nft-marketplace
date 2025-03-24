@@ -129,6 +129,28 @@ ion-card {
     }
   }
 }
+// ...existing code...
+
+.login-link {
+  text-align: center;
+  margin-top: 24px;
+
+  p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+
+    a {
+      color: #5142fc;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 8px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
 
 
 @media (max-width: 768px) {

@@ -55,6 +55,12 @@
             <ion-button expand="full" type="submit" [disabled]="signUpForm.invalid">
               Create My Account
             </ion-button>
+            <div class="login-link">
+              <p>
+                Already have an account?
+                <a [routerLink]="['/login']">Login</a>
+              </p>
+            </div>
           </form>
         </ion-card-content>
       </ion-card>
