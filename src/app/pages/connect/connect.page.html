@@ -11,7 +11,7 @@
     </div>
 
     <div class="wallet-grid">
-      <div class="wallet__item" *ngFor="let item of walletdata">
+      <div class="wallet__item" *ngFor="let item of walletdata" (click)="item.title === 'Metamask' ? connectWallet() : null">
         <span>
           <i [class]="item.icon"></i>
         </span>
