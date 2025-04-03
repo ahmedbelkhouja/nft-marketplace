@@ -11,14 +11,19 @@ import {
 import { IonicModule } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpClient } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   standalone: true,
+
   providers: [HttpClient],
-  imports: [ReactiveFormsModule, IonicModule, FormsModule, CommonModule],
+
+  imports: [ReactiveFormsModule, IonicModule, FormsModule , CommonModule, RouterModule],
+
 })
 export class LoginComponent {
   loginForm: FormGroup;
