@@ -13,13 +13,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string) {
-    const user = {
-      username,
-      password,
-    };
-
-    return this.http.post(`${this.API_URL}/api/auth/login`, user).pipe(
+  login(userData: FormData) {
+    return this.http.post(`${this.API_URL}/api/auth/login`, userData).pipe(
       map((res: any) => {
         console.log('Login response:', res); // Log the response
         return res;

@@ -37,7 +37,7 @@ export class LoginComponent {
 
       // Call the AuthService login method
       this.authService
-        .login(this.loginForm.value.email, this.loginForm.value.password)
+        .login(this.loginForm.value)
         .subscribe((res) => console.log(res));
     } else {
       console.log('Form is invalid');
