@@ -3,22 +3,31 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
+import { HttpClient} from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
   standalone: true,
-  imports: [ReactiveFormsModule, IonicModule, FormsModule, CommonModule, RouterModule],
+  imports: [
+    ReactiveFormsModule,
+    IonicModule,
+    FormsModule,
+    CommonModule,
+    RouterModule,
+  ],
+  providers: [HttpClient] // Simplified provider
 })
 export class SignUpComponent {
-
   signUpForm: FormGroup;
   previewUrl: string | null = null;
 
-  constructor() {
+  constructor(private http: HttpClient,private router: Router) {
     this.signUpForm = new FormGroup({
-      name: new FormControl('', [Validators.required]),
+      userName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
       profilePicture: new FormControl(null)
@@ -46,9 +55,29 @@ export class SignUpComponent {
 
   onSubmit() {
     if (this.signUpForm.valid) {
-      console.log('Form Submitted:', this.signUpForm.value);
-    } else {
-      console.log('Form is invalid');
+      const formData = new FormData();
+
+      // Append all fields
+      formData.append('userName', this.signUpForm.get('userName')?.value);
+      formData.append('email', this.signUpForm.get('email')?.value);
+      formData.append('password', this.signUpForm.get('password')?.value);
+
+      // Append file if exists
+      const profilePic = this.signUpForm.get('profilePicture')?.value;
+      if (profilePic) {
+        formData.append('profilePicture', profilePic);
+      }
+
+      this.http.post('http://localhost:3000/api/auth/signup', formData).subscribe({
+        next: (response: any) => {
+          console.log('Signup successful', response);
+          this.router.navigate(['/home']);
+        },
+        error: (error) => {
+          console.error('Signup failed', error);
+          alert(error.error?.message || 'Signup failed. Please try again.');
+        }
+      });
     }
   }
 }
