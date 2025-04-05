@@ -10,10 +10,12 @@
             <!-- Profile Picture Upload -->
             <div class="profile-upload">
               <ion-avatar>
-                <ion-img [src]="previewUrl || 'assets/images/Image-not-found.png'" alt="Profile"></ion-img>
+                <ion-img
+                  [src]="previewUrl || 'assets/images/Image-not-found.png'"
+                  alt="Profile"
+                ></ion-img>
               </ion-avatar>
               <ion-button fill="clear" (click)="fileInput.click()">
-
                 Upload Photo
               </ion-button>
               <input
@@ -22,37 +24,64 @@
                 accept="image/*"
                 (change)="onFileSelected($event)"
                 style="display: none"
-              >
+              />
             </div>
             <ion-item>
               <ion-label position="floating">Name</ion-label>
               <ion-input type="text" formControlName="userName"></ion-input>
             </ion-item>
-            <div *ngIf="signUpForm.get('userName')?.invalid && signUpForm.get('userName')?.touched">
-              <small *ngIf="signUpForm.get('userName')?.errors?.['required']">Name is required.</small>
+            <div
+              *ngIf="
+                signUpForm.get('name')?.invalid &&
+                signUpForm.get('name')?.touched
+              "
+            >
+              <small *ngIf="signUpForm.get('name')?.errors?.['required']"
+                >Name is required.</small
+              >
             </div>
 
             <ion-item>
               <ion-label position="floating">Email</ion-label>
               <ion-input type="email" formControlName="email"></ion-input>
             </ion-item>
-            <div *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched">
-              <small *ngIf="signUpForm.get('email')?.errors?.['required']">Email is required.</small>
-              <small *ngIf="signUpForm.get('email')?.errors?.['email']">Invalid email address.</small>
+            <div
+              *ngIf="
+                signUpForm.get('email')?.invalid &&
+                signUpForm.get('email')?.touched
+              "
+            >
+              <small *ngIf="signUpForm.get('email')?.errors?.['required']"
+                >Email is required.</small
+              >
+              <small *ngIf="signUpForm.get('email')?.errors?.['email']"
+                >Invalid email address.</small
+              >
             </div>
 
             <ion-item>
               <ion-label position="floating">Password</ion-label>
               <ion-input type="password" formControlName="password"></ion-input>
             </ion-item>
-            <div *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched">
-              <small *ngIf="signUpForm.get('password')?.errors?.['required']">Password is required.</small>
+            <div
+              *ngIf="
+                signUpForm.get('password')?.invalid &&
+                signUpForm.get('password')?.touched
+              "
+            >
+              <small *ngIf="signUpForm.get('password')?.errors?.['required']"
+                >Password is required.</small
+              >
               <small *ngIf="signUpForm.get('password')?.errors?.['minlength']">
                 Password must be at least 6 characters long.
               </small>
             </div>
 
-            <ion-button expand="full" type="submit" [disabled]="signUpForm.invalid">
+            <ion-button
+              expand="full"
+              type="submit"
+              [disabled]="signUpForm.invalid"
+            >
               Create My Account
             </ion-button>
             <div class="login-link">
