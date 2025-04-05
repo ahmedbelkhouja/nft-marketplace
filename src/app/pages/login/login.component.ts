@@ -12,8 +12,6 @@ import { IonicModule } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -30,8 +28,6 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   loginForm: FormGroup;
 
-
-
   constructor(private fb: FormBuilder, private authService: AuthService) {
     // Initialize the loginForm with FormBuilder for cleaner code
     this.loginForm = this.fb.group({
@@ -39,9 +35,9 @@ export class LoginComponent {
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
+
   onSubmit() {
     if (this.loginForm.valid) {
-
       console.log('Form Submitted:', this.loginForm.value);
 
       // Call the AuthService login method
@@ -53,4 +49,3 @@ export class LoginComponent {
     }
   }
 }
-
