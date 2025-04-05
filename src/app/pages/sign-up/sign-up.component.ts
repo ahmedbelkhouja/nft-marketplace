@@ -11,23 +11,13 @@ import { IonicModule } from '@ionic/angular';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { RouterModule } from '@angular/router';
-import { HttpClient} from '@angular/common/http';
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    IonicModule,
-    FormsModule,
-    CommonModule,
-    RouterModule,
-  ],
-  providers: [HttpClient] // Simplified provider
+  imports: [ReactiveFormsModule, IonicModule, FormsModule, CommonModule, RouterModule],
 })
 export class SignUpComponent {
   signUpForm: FormGroup;
@@ -68,7 +58,6 @@ export class SignUpComponent {
   onSubmit() {
     if (this.signUpForm.valid) {
       const formData = new FormData();
-
       formData.append('userName', this.signUpForm.get('userName')?.value); // Correct field name
       formData.append('email', this.signUpForm.get('email')?.value);
       formData.append('password', this.signUpForm.get('password')?.value);
