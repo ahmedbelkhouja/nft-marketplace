@@ -28,7 +28,6 @@
     "@capacitor/keyboard": "7.0.0",
     "@capacitor/status-bar": "7.0.0",
     "@ionic/angular": "^8.4.3",
-    "@ngrx/store": "^19.1.0",
     "@reactivex/rxjs": "^6.6.7",
     "ethers": "^6.13.5",
     "event-marketplace": "file:",
@@ -63,8 +62,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.6.3",
-    "@ngrx/eslint-plugin": "^19.1.0"
+    "typescript": "~5.6.3"
   },
   "description": "An Ionic project"
 }
