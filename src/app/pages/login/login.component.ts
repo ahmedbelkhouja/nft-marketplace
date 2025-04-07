@@ -9,7 +9,7 @@ import {
   FormBuilder,
 } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';

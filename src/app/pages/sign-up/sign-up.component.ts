@@ -9,7 +9,7 @@ import {
 } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -17,7 +17,13 @@ import { RouterModule } from '@angular/router';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
   standalone: true,
-  imports: [ReactiveFormsModule, IonicModule, FormsModule, CommonModule, RouterModule],
+  imports: [
+    ReactiveFormsModule,
+    IonicModule,
+    FormsModule,
+    CommonModule,
+    RouterModule,
+  ],
 })
 export class SignUpComponent {
   signUpForm: FormGroup;

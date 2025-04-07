@@ -10,57 +10,56 @@ export const publicRoutes: Routes = [
   {
     path: 'home',
     loadComponent: () =>
-      import('./pages/home/home.page').then((m) => m.HomePage),
+      import('../pages/home/home.page').then((m) => m.HomePage),
   },
 
   {
     path: 'market',
     loadComponent: () =>
-      import('./pages/market/market.page').then((m) => m.MarketPage),
+      import('../pages/market/market.page').then((m) => m.MarketPage),
   },
 
   {
     path: 'create',
     loadComponent: () =>
-      import('./pages/create/create.page').then((m) => m.CreatePage),
+      import('../pages/create/create.page').then((m) => m.CreatePage),
   },
 
   {
     path: 'contact',
     loadComponent: () =>
-      import('./pages/contact/contact.page').then((m) => m.ContactPage),
+      import('../pages/contact/contact.page').then((m) => m.ContactPage),
   },
 
   {
     path: 'market/:id',
     loadComponent: () =>
-      import('./pages/nft-details/nft-details.component').then(
+      import('../pages/nft-details/nft-details.component').then(
         (m) => m.NftDetailsComponent
       ),
   },
   {
     path: 'connect',
     loadComponent: () =>
-      import('./pages/connect/connect.page').then((m) => m.ConnectPage),
+      import('../pages/connect/connect.page').then((m) => m.ConnectPage),
   },
   {
     path: 'history/:id',
     loadComponent: () =>
-      import('./pages/history/history.component').then(
+      import('../pages/history/history.component').then(
         (m) => m.HistoryComponent
       ),
   },
   {
     path: 'login',
     loadComponent: () =>
-      import('./pages/login/login.component').then((m) => m.LoginComponent),
+      import('../pages/login/login.component').then((m) => m.LoginComponent),
   },
   {
     path: 'signup',
     loadComponent: () =>
-      import('./pages/sign-up/sign-up.component').then(
+      import('../pages/sign-up/sign-up.component').then(
         (m) => m.SignUpComponent
       ),
   },
-  
 ];

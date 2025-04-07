@@ -9,8 +9,6 @@ export const privateRoutes: Routes = [
   {
     path: 'dashboard',
     loadComponent: () =>
-      import('./private/dashboard/dashboard.component').then(
-        (m) => m.DashboardComponent
-      ),
+      import('./dashboard/dashboard.page').then((m) => m.DashboardPage),
   },
 ];
