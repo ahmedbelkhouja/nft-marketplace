@@ -1,36 +1,34 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  FormsModule,
+  FormGroup,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
-import { HttpClient} from '@angular/common/http';
-import { Router } from '@angular/router';
 
+import { AuthService } from 'src/app/services/auth.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    IonicModule,
-    FormsModule,
-    CommonModule,
-    RouterModule,
-  ],
-  providers: [HttpClient] // Simplified provider
+  imports: [ReactiveFormsModule, IonicModule, FormsModule, CommonModule, RouterModule],
 })
 export class SignUpComponent {
   signUpForm: FormGroup;
   previewUrl: string | null = null;
 
-  constructor(private http: HttpClient,private router: Router) {
-    this.signUpForm = new FormGroup({
-      userName: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      profilePicture: new FormControl(null)
+  constructor(private fb: FormBuilder, private authService: AuthService) {
+    this.signUpForm = this.fb.group({
+      userName: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      image: [null, Validators.required],
     });
   }
 
@@ -42,42 +40,51 @@ export class SignUpComponent {
         return;
       }
 
+      // Preview the image
       const reader = new FileReader();
       reader.onload = (e: any) => {
-        this.previewUrl = e.target.result;
-        this.signUpForm.patchValue({
-          profilePicture: file
-        });
+        this.previewUrl = e.target.result; // Set preview URL for the image
       };
       reader.readAsDataURL(file);
+
+      // Update the form control with the file
+      this.signUpForm.patchValue({
+        image: file, // Attach the file object
+      });
+      this.signUpForm.get('image')?.updateValueAndValidity();
     }
   }
 
   onSubmit() {
     if (this.signUpForm.valid) {
       const formData = new FormData();
-
-      // Append all fields
-      formData.append('userName', this.signUpForm.get('userName')?.value);
+      formData.append('userName', this.signUpForm.get('userName')?.value); // Correct field name
       formData.append('email', this.signUpForm.get('email')?.value);
       formData.append('password', this.signUpForm.get('password')?.value);
 
-      // Append file if exists
-      const profilePic = this.signUpForm.get('profilePicture')?.value;
-      if (profilePic) {
-        formData.append('profilePicture', profilePic);
+      // Append the image file
+      const imageFile = this.signUpForm.get('image')?.value;
+      if (imageFile) {
+        formData.append('image', imageFile); // Ensure the file is appended
       }
 
-      this.http.post('http://localhost:3000/api/auth/signup', formData).subscribe({
-        next: (response: any) => {
-          console.log('Signup successful', response);
-          this.router.navigate(['/home']);
+      // Call the AuthService signup method
+      this.authService.signup(formData).subscribe({
+        next: (res) => {
+          console.log('Response from server:', res);
+          if (res.success) {
+            alert('Sign up successful!');
+          } else {
+            alert('Sign up failed. Please try again.');
+          }
         },
-        error: (error) => {
-          console.error('Signup failed', error);
-          alert(error.error?.message || 'Signup failed. Please try again.');
-        }
+        error: (err) => {
+          console.error('Error during sign up:', err);
+          alert('An error occurred. Please try again later.');
+        },
       });
+    } else {
+      console.log('Form is invalid');
     }
   }
 }
