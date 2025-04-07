@@ -55,8 +55,7 @@ export class LoginComponent {
           console.log('Login successful:', res);
           // Handle successful login, e.g., navigate to another page
           document.cookie = `authToken=${res.token}; HttpOnly; Secure; SameSite=Strict`;
-
-          this.router.navigate(['/dashboard']); // Navigate to the home page after login
+          this.router.navigate(['/private/dashboard']);
         },
       });
     } else {
