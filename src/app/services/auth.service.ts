@@ -14,21 +14,29 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(userData: FormData) {
-    return this.http.post(`${this.API_URL}/api/auth/login`, userData).pipe(
-      map((res: any) => {
-        console.log('Login response:', res); // Log the response
-        return res;
-      }),
-      catchError((error) => {
-        console.error('Login error:', error);
-        return throwError(() => error);
+    return this.http
+      .post(`${this.API_URL}/api/auth/login`, userData, {
+        withCredentials: true,
+        headers: { 'Content-Type': 'application/json' }, // Set the content type to application/json
       })
-    );
+      .pipe(
+        map((res: any) => {
+          console.log('Login response:', res); // Log the response
+          return res;
+        }),
+        catchError((error) => {
+          console.error('Login error:', error);
+          return throwError(() => error);
+        })
+      );
   }
 
   signup(formData: FormData) {
     return this.http
-      .post(`${this.API_URL}/api/auth/signup`, formData) // Send FormData directly
+      .post(`${this.API_URL}/api/auth/signup`, formData, {
+        withCredentials: true,
+        headers: { 'Content-Type': 'multipart/form-data' }, // Set the content type to multipart/form-data
+      }) // Send FormData directly
       .pipe(
         map((res: any) => {
           console.log('Signup response:', res);
@@ -41,5 +49,9 @@ export class AuthService {
           return throwError(() => error);
         })
       );
+  }
+  isAuthenticated(): boolean {
+    const user = localStorage.getItem(USER_STORAGE_KEY);
+    return !!user; // Return true if user exists, false otherwise
   }
 }

@@ -43,21 +43,30 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/connect/connect.page').then((m) => m.ConnectPage),
   },
-  {path: 'history/:id',
-    loadComponent: () =>
-      import('./pages/history/history.component').then((m) => m.HistoryComponent),
-  }
-  ,
   {
-    path : 'login',
+    path: 'history/:id',
+    loadComponent: () =>
+      import('./pages/history/history.component').then(
+        (m) => m.HistoryComponent
+      ),
+  },
+  {
+    path: 'login',
     loadComponent: () =>
       import('./pages/login/login.component').then((m) => m.LoginComponent),
-  }
-  ,
+  },
   {
-    path : 'signup',
+    path: 'signup',
     loadComponent: () =>
-      import('./pages/sign-up/sign-up.component').then((m) => m.SignUpComponent),
-  }
-
+      import('./pages/sign-up/sign-up.component').then(
+        (m) => m.SignUpComponent
+      ),
+  },
+  {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./private/dashboard/dashboard.component').then(
+        (m) => m.DashboardComponent
+      ),
+  },
 ];
