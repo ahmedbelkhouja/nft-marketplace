@@ -26,6 +26,8 @@
                 style="display: none"
               />
             </div>
+          <small *ngIf="backendErrors.image" class="error ion-text-center">{{ backendErrors.image }}</small>
+
             <ion-item>
               <ion-label position="floating">Name</ion-label>
               <ion-input type="text" formControlName="userName"></ion-input>
@@ -40,6 +42,7 @@
                 >Name is required.</small
               >
             </div>
+            <small *ngIf="backendErrors.userName" class="error">{{ backendErrors.userName }}</small>
 
             <ion-item>
               <ion-label position="floating">Email</ion-label>
@@ -58,6 +61,7 @@
                 >Invalid email address.</small
               >
             </div>
+            <small *ngIf="backendErrors.email" class="error">{{ backendErrors.email }}</small>
 
             <ion-item>
               <ion-label position="floating">Password</ion-label>
@@ -76,6 +80,7 @@
                 Password must be at least 6 characters long.
               </small>
             </div>
+            <small *ngIf="backendErrors.password" class="error">{{ backendErrors.password }}</small>
 
             <ion-button
               expand="full"
