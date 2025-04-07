@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LayoutComponent } from './components/layout/layout.component';
+import { LayoutComponent } from './public/layout/layout.component';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
