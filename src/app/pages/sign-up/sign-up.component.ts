@@ -72,6 +72,7 @@ export class SignUpComponent {
       this.authService.signup(formData).subscribe({
         next: (res) => {
           console.log('Response from server:', res);
+
           if (res.success) {
             alert('Sign up successful!');
           } else {
