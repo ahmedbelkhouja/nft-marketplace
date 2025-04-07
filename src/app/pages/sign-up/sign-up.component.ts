@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
+
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -80,6 +81,7 @@ export class SignUpComponent {
           console.error('Signup error:', err);
           if (err.error?.errors) this.backendErrors = err.error.errors;
           // 🔥 Store backend validation errors
+
           else alert('An unexpected error occurred.');
         },
       });
