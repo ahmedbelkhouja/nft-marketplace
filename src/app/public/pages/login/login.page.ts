@@ -54,8 +54,8 @@ export class LoginPage {
       this.authService.login(this.loginForm.value).subscribe({
         next: (res) => {
           console.log('Login successful:', res);
-          document.cookie = `authToken=${res.token}; HttpOnly; Secure; SameSite=Strict`;
-          this.router.navigate(['/private/dashboard']);
+          localStorage.setItem('shadow', JSON.stringify(res.user)); // Store user
+          this.router.navigate(['/private/user']); // Redirect to user area
         },
         error: (err) => {
           console.error('Login error:', err);

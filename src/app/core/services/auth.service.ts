@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { throwError, Observable, of } from 'rxjs';
 
 export const USER_STORAGE_KEY = 'shadow';
 
+interface AuthResponse {
+  isAuthenticated: boolean;
+  user?: any;
+}
 @Injectable({
   providedIn: 'root',
 })
@@ -49,8 +53,9 @@ export class AuthService {
         })
       );
   }
-  isAuthenticated(): boolean {
+  isAuthenticated(): Observable<AuthResponse> {
     const user = localStorage.getItem(USER_STORAGE_KEY);
-    return !!user; // Return true if user exists, false otherwise
+    return of({ isAuthenticated: !!user, user: user ? JSON.parse(user) : null });
   }
 }
+
