@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CommonSectionComponent } from 'src/app/shared/components/ui/common-section/common-section.component';
-import {PreviewCardComponent} from 'src/app/shared/components/ui/preview-card/preview-card.component';
+import { CommonSectionComponent } from 'src/app/components/ui/common-section/common-section.component';
+import {PreviewCardComponent} from 'src/app/components/ui/preview-card/preview-card.component';
 
 
 @Component({

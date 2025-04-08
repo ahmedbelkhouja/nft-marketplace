@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { CommonSectionComponent } from '../../../../shared/components/ui/common-section/common-section.component';
+import { CommonSectionComponent } from '../../components/ui/common-section/common-section.component';
 
 interface WalletData {
   title: string;
