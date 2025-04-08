@@ -20,7 +20,7 @@ interface NFTItem {
   standalone: true,
   imports: [IonicModule, FormsModule, CommonModule]
 })
-export class BidModalComponent {
+export class ModalComponent {
   @Input() nft!: NFTItem;
   serviceFeePercentage: number = 2;
   bidAmount!: number;

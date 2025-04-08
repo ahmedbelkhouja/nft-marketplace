@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { NftDetailsComponent } from './nft-details.component';
+import { NftDetailsPage } from './nft-details.page';
 
-describe('NftDetailsComponent', () => {
-  let component: NftDetailsComponent;
-  let fixture: ComponentFixture<NftDetailsComponent>;
+describe('NftDetailsPage', () => {
+  let component: NftDetailsPage;
+  let fixture: ComponentFixture<NftDetailsPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [NftDetailsComponent],
+      declarations: [NftDetailsPage],
       imports: [IonicModule.forRoot()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NftDetailsComponent);
+    fixture = TestBed.createComponent(NftDetailsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
