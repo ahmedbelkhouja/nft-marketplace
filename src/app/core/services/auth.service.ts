@@ -17,11 +17,11 @@ export class AuthService {
     return this.http
       .post(`${this.API_URL}/api/auth/login`, userData, {
         withCredentials: true,
-        headers: { 'Content-Type': 'application/json' }, // Set the content type to application/json
       })
       .pipe(
         map((res: any) => {
           console.log('Login response:', res); // Log the response
+          window.localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(res)); // Store the user data in local storage
           return res;
         }),
         catchError((error) => {
@@ -39,7 +39,8 @@ export class AuthService {
       .pipe(
         map((res: any) => {
           console.log('Signup response:', res);
-
+          // Store the user data in local storage
+          window.localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(res));
           // Log the response
           return res;
         }),

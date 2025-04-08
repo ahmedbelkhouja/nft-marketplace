@@ -7,7 +7,5 @@ import {
   CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  GuardResult,
-  MaybeAsync,
 } from '@angular/router';
 import { catchError, map, of } from 'rxjs';
