@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NFT__DATA } from 'src/assets/data/data';
 import { IonicModule, ModalController } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
-import { BidModalComponent } from 'src/app/components/ui/modal/modal.component';
+import { BidModalComponent } from 'src/app/private/user/components/modal/modal.component';
 import { HistoryPage } from '../history/history.page';
 
 interface NFTnft {
