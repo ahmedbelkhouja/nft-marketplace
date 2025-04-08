@@ -5,8 +5,9 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from 'src/app/core/services/auth.service';
 
+import { AuthService } from '../../../core/services/auth.service';
+import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -27,7 +28,7 @@ export class SignUpPage {
   previewUrl: string | null = null;
   backendErrors: any = {}; // 🔥 NEW: to store errors returned from backend
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.signUpForm = this.fb.group({
       userName: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
@@ -74,7 +75,7 @@ export class SignUpPage {
 
       this.authService.signup(formData).subscribe({
         next: (res) => {
-          if (res.success) alert('Sign up successful!');
+          if (res.success) this.router.navigate(['/private/dashboard']);
           else alert('Sign up failed. Please try again.');
         },
         error: (err) => {

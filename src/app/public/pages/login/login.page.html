@@ -25,7 +25,7 @@
                 >Invalid email address.</small
               >
             </div>
-
+            <small *ngIf="backendErrors.email">{{ backendErrors.email }}</small>
             <ion-item>
               <ion-label position="floating">Password</ion-label>
               <ion-input type="password" formControlName="password"></ion-input>
@@ -43,6 +43,8 @@
                 Password must be at least 6 characters long.
               </small>
             </div>
+            <small *ngIf="backendErrors.password">{{ backendErrors.password }}</small>
+            <small *ngIf="backendErrors.general">{{ backendErrors.general }}</small>
 
             <ion-button
               expand="full"
