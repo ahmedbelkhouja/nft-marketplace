@@ -2,13 +2,13 @@ import { Routes } from '@angular/router';
 
 export const privateRoutes: Routes = [
   {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'dashboard',
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/app.admin.routes').then((m) => m.adminRoutes),
   },
   {
-    path: 'dashboard',
-    loadComponent: () =>
-      import('./dashboard/dashboard.page').then((m) => m.DashboardPage),
+    path: 'user',
+    loadChildren: () =>
+      import('./user/app.user.routes').then((m) => m.userRoutes),
   },
 ];
