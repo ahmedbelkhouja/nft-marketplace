@@ -18,19 +18,19 @@ interface NFTItem {
   templateUrl: './nft-card.component.html',
   styleUrls: ['./nft-card.component.scss'],
   standalone: true,
-  imports: [IonicModule, RouterLink]
+  imports: [IonicModule, RouterLink],
 })
 export class NftCardComponent {
   @Input() item!: NFTItem;
 
-  constructor(private modalController: ModalController ) {}
+  constructor(private modalController: ModalController) {}
 
   async openBidModal() {
     const modal = await this.modalController.create({
       component: ModalComponent,
       componentProps: {
-        nft: this.item
-      }
+        nft: this.item,
+      },
     });
 
     await modal.present();
@@ -40,5 +40,4 @@ export class NftCardComponent {
       console.log('Bid placed:', data);
     }
   }
-
 }

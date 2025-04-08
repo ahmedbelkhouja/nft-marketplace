@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { AuthService } from '../../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
@@ -62,7 +63,7 @@ export class SignUpPage {
   }
 
   onSubmit() {
-    this.backendErrors = {}; // 🔥 Clear old errors
+    this.backendErrors = {};
 
     if (this.signUpForm.valid) {
       const formData = new FormData();
@@ -80,8 +81,6 @@ export class SignUpPage {
         error: (err) => {
           console.error('Signup error:', err);
           if (err.error?.errors) this.backendErrors = err.error.errors;
-          // 🔥 Store backend validation errors
-
           else alert('An unexpected error occurred.');
         },
       });

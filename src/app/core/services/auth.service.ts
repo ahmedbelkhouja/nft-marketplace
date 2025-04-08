@@ -35,7 +35,6 @@ export class AuthService {
     return this.http
       .post(`${this.API_URL}/api/auth/signup`, formData, {
         withCredentials: true,
-
       }) // Send FormData directly
       .pipe(
         map((res: any) => {
