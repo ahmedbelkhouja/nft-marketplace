@@ -34,8 +34,8 @@ export const publicRoutes: Routes = [
   {
     path: 'market/:id',
     loadComponent: () =>
-      import('../pages/nft-details/nft-details.component').then(
-        (m) => m.NftDetailsComponent
+      import('../pages/nft-details/nft-details.page').then(
+        (m) => m.NftDetailsPage
       ),
   },
   {
@@ -46,20 +46,16 @@ export const publicRoutes: Routes = [
   {
     path: 'history/:id',
     loadComponent: () =>
-      import('../pages/history/history.component').then(
-        (m) => m.HistoryComponent
-      ),
+      import('../pages/history/history.page').then((m) => m.HistoryPage),
   },
   {
     path: 'login',
     loadComponent: () =>
-      import('../pages/login/login.component').then((m) => m.LoginComponent),
+      import('../pages/login/login.page').then((m) => m.LoginPage),
   },
   {
     path: 'signup',
     loadComponent: () =>
-      import('../pages/sign-up/sign-up.component').then(
-        (m) => m.SignUpComponent
-      ),
+      import('../pages/sign-up/sign-up.page').then((m) => m.SignUpPage),
   },
 ];

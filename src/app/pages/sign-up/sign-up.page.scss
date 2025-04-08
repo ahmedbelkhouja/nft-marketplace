@@ -1,5 +1,5 @@
 ion-grid {
-  min-height:calc(100vh - 120px);
+  min-height: calc(100vh - 120px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -156,8 +156,6 @@ ion-card {
   display: block;
   margin-top: 4px;
 }
-
-
 
 @media (max-width: 768px) {
   ion-grid {

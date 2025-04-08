@@ -16,8 +16,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
   standalone: true,
 
   providers: [HttpClient],
@@ -30,7 +30,7 @@ import { Router } from '@angular/router';
     RouterModule,
   ],
 })
-export class LoginComponent {
+export class LoginPage {
   loginForm: FormGroup;
 
   constructor(
