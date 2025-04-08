@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
-<<<<<<<< HEAD:src/app/components/ui/common-section/common-section.component.spec.ts
 import { CommonSectionComponent } from './common-section.component';
+import { SellerCardComponent } from '../seller-card/seller-card.component';
 
 describe('CommonSectionComponent', () => {
   let component: CommonSectionComponent;
@@ -15,8 +14,14 @@ describe('CommonSectionComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(CommonSectionComponent);
-========
-import { SellerCardComponent } from './seller-card.component';
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  }));
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
 
 describe('SellerCardComponent', () => {
   let component: SellerCardComponent;
@@ -29,7 +34,6 @@ describe('SellerCardComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(SellerCardComponent);
->>>>>>>> master:src/app/components/ui/seller-card/seller-card.component.spec.ts
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
