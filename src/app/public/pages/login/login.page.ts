@@ -32,6 +32,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPage {
   loginForm: FormGroup;
+  backendErrors: any = {};
 
   constructor(
     private fb: FormBuilder,
@@ -46,20 +47,23 @@ export class LoginPage {
   }
 
   onSubmit() {
+    this.backendErrors = {}; // Clear previous errors
     if (this.loginForm.valid) {
       console.log('Form Submitted:', this.loginForm.value);
 
-      // Call the AuthService login method
       this.authService.login(this.loginForm.value).subscribe({
         next: (res) => {
           console.log('Login successful:', res);
-          // Handle successful login, e.g., navigate to another page
           document.cookie = `authToken=${res.token}; HttpOnly; Secure; SameSite=Strict`;
           this.router.navigate(['/private/dashboard']);
         },
+        error: (err) => {
+          console.error('Login error:', err);
+          if (err.error?.errors) {
+            this.backendErrors = err.error.errors;
+          }
+        }
       });
-    } else {
-      console.log('Form is invalid');
     }
   }
 }

@@ -35,7 +35,7 @@ export class AuthService {
     return this.http
       .post(`${this.API_URL}/api/auth/signup`, formData, {
         withCredentials: true,
-        headers: { 'Content-Type': 'multipart/form-data' }, // Set the content type to multipart/form-data
+
       }) // Send FormData directly
       .pipe(
         map((res: any) => {
