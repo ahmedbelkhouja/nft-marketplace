@@ -22,13 +22,17 @@ export const publicRoutes: Routes = [
   {
     path: 'create',
     loadComponent: () =>
-      import('../private/user/pages/create/create.page').then((m) => m.CreatePage),
+      import('../private/user/pages/create/create.page').then(
+        (m) => m.CreatePage
+      ),
   },
 
   {
     path: 'contact',
     loadComponent: () =>
-      import('../private/user/pages/contact/contact.page').then((m) => m.ContactPage),
+      import('../private/user/pages/contact/contact.page').then(
+        (m) => m.ContactPage
+      ),
   },
 
   {
@@ -41,7 +45,9 @@ export const publicRoutes: Routes = [
   {
     path: 'connect',
     loadComponent: () =>
-      import('../private/user/pages/connect/connect.page').then((m) => m.ConnectPage),
+      import('../private/user/pages/connect/connect.page').then(
+        (m) => m.ConnectPage
+      ),
   },
   {
     path: 'history/:id',
