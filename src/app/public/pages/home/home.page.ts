@@ -5,11 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 // Import standalone UI components
-import { HeroComponent } from 'src/app/public/components/ui/hero/hero.component';
+import { HeroComponent } from 'src/app/public/components/hero/hero.component';
 import { LiveAuctionComponent } from 'src/app/shared/components/ui/live-auction/live-auction.component';
 import { SellerSectionComponent } from 'src/app/shared/components/ui/seller-section/seller-section.component';
 import { TrendingSectionComponent } from 'src/app/shared/components/ui/trending-section/trending-section.component';
-import { StepSectionComponent } from 'src/app/public/components/ui/step-section/step-section.component';
+import { StepSectionComponent } from 'src/app/public/components/step-section/step-section.component';
 
 @Component({
   selector: 'app-home',
