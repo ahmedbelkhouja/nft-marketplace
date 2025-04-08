@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { IonicModule, ModalController } from '@ionic/angular';
 import { RouterLink } from '@angular/router';
-import { BidModalComponent } from '../../../../private/user/components/modal/modal.component';
+import { ModalComponent } from '../../../../private/user/components/modal/modal.component';
 
 interface NFTItem {
   id: string;
@@ -27,7 +27,7 @@ export class NftCardComponent {
 
   async openBidModal() {
     const modal = await this.modalController.create({
-      component: BidModalComponent,
+      component: ModalComponent,
       componentProps: {
         nft: this.item
       }
