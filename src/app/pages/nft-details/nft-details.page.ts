@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonSectionComponent } from "../../components/ui/common-section/common-section.component";
+import { CommonSectionComponent } from '../../components/ui/common-section/common-section.component';
 import { ActivatedRoute } from '@angular/router';
 import { NFT__DATA } from 'src/assets/data/data';
-import {IonicModule,ModalController} from '@ionic/angular';
-import {RouterModule} from '@angular/router';
+import { IonicModule, ModalController } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
 import { BidModalComponent } from 'src/app/components/ui/modal/modal.component';
-import { HistoryComponent } from "../history/history.component";
-
+import { HistoryPage } from '../history/history.page';
 
 interface NFTnft {
   id: string;
@@ -20,32 +19,33 @@ interface NFTnft {
 
 @Component({
   selector: 'app-nft-details',
-  templateUrl: './nft-details.component.html',
-  styleUrls: ['./nft-details.component.scss'],
-  imports: [CommonSectionComponent, IonicModule, RouterModule, HistoryComponent],
+  templateUrl: './nft-details.page.html',
+  styleUrls: ['./nft-details.page.scss'],
+  imports: [CommonSectionComponent, IonicModule, RouterModule, HistoryPage],
 })
-export class NftDetailsComponent  implements OnInit {
-  nft : any;
+export class NftDetailsPage implements OnInit {
+  nft: any;
 
-  constructor(private route : ActivatedRoute ,private modalController: ModalController ) { }
+  constructor(
+    private route: ActivatedRoute,
+    private modalController: ModalController
+  ) {}
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
 
-    this.nft = NFT__DATA.find(nft => nft.id === id);
+    this.nft = NFT__DATA.find((nft) => nft.id === id);
   }
   async openBidModal() {
     const modal = await this.modalController.create({
       component: BidModalComponent,
       componentProps: {
-        nft: this.nft
-      }
+        nft: this.nft,
+      },
     });
 
     await modal.present();
 
     const { data } = await modal.onWillDismiss();
-  
   }
-
 }

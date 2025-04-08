@@ -10,8 +10,8 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss'],
+  templateUrl: './sign-up.page.html',
+  styleUrls: ['./sign-up.page.scss'],
   standalone: true,
   imports: [
     ReactiveFormsModule,
@@ -21,7 +21,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
   ],
 })
-export class SignUpComponent {
+export class SignUpPage {
   signUpForm: FormGroup;
   previewUrl: string | null = null;
   backendErrors: any = {}; // 🔥 NEW: to store errors returned from backend
