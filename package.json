@@ -32,6 +32,7 @@
     "ethers": "^6.13.5",
     "event-marketplace": "file:",
     "ionicons": "^7.4.0",
+    "jwt-decode": "^4.0.0",
     "remixicon": "^4.6.0",
     "rxjs": "^7.8.2",
     "tslib": "^2.3.0",

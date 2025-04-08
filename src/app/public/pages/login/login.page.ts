@@ -54,8 +54,11 @@ export class LoginPage {
         next: (res) => {
           console.log('Login successful:', res);
           // Handle successful login, e.g., navigate to another page
-          document.cookie = `authToken=${res.token}; HttpOnly; Secure; SameSite=Strict`;
-          this.router.navigate(['/private/dashboard']);
+          if (localStorage.getItem('role') === 'admin') {
+            this.router.navigate(['/private/admin']);
+          } else {
+            this.router.navigate(['/private/user']);
+          }
         },
       });
     } else {
