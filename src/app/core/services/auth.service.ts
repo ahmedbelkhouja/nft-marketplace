@@ -14,6 +14,7 @@ interface JwtPayload {
   iat: number;
 }
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -109,5 +110,7 @@ export class AuthService {
 
     const decoded = jwtDecode<{ role: string }>(token);
     return decoded.role;
+
   }
 }
+

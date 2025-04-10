@@ -32,6 +32,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPage {
   loginForm: FormGroup;
+  backendErrors: any = {};
 
   constructor(
     private fb: FormBuilder,
@@ -46,6 +47,7 @@ export class LoginPage {
   }
 
   onSubmit() {
+    this.backendErrors = {}; // Clear previous errors
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
         next: (res) => {
@@ -53,10 +55,15 @@ export class LoginPage {
         },
         error: (err) => {
           console.error('Login failed:', err);
+
         },
+        error: (err) => {
+          console.error('Login error:', err);
+          if (err.error?.errors) {
+            this.backendErrors = err.error.errors;
+          }
+        }
       });
-    } else {
-      console.log('Form is invalid');
     }
   }
 }
