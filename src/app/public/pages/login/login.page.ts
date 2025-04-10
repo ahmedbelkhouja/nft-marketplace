@@ -49,20 +49,15 @@ export class LoginPage {
   onSubmit() {
     this.backendErrors = {}; // Clear previous errors
     if (this.loginForm.valid) {
-      console.log('Form Submitted:', this.loginForm.value);
-
       this.authService.login(this.loginForm.value).subscribe({
         next: (res) => {
           console.log('Login successful:', res);
-          localStorage.setItem('shadow', JSON.stringify(res.user)); // Store user
-          this.router.navigate(['/private/user']); // Redirect to user area
         },
         error: (err) => {
-          console.error('Login error:', err);
-          if (err.error?.errors) {
-            this.backendErrors = err.error.errors;
-          }
+          console.error('Login failed:', err);
+
         }
+       
       });
     }
   }

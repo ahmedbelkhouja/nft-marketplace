@@ -28,7 +28,11 @@ export class SignUpPage {
   previewUrl: string | null = null;
   backendErrors: any = {}; // 🔥 NEW: to store errors returned from backend
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.signUpForm = this.fb.group({
       userName: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
@@ -77,6 +81,7 @@ export class SignUpPage {
         next: (res) => {
           if (res.success) this.router.navigate(['/private/dashboard']);
           else alert('Sign up failed. Please try again.');
+          this.router.navigate(['/private']);
         },
         error: (err) => {
           console.error('Signup error:', err);

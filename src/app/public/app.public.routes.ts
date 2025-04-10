@@ -1,8 +1,9 @@
 import { Routes } from '@angular/router';
-
+import { PublicGuard } from '../core/guards/public-guard.guard';
 export const publicRoutes: Routes = [
   {
     path: '',
+    canActivate: [PublicGuard],
     loadComponent: () =>
       import('./layout/layout.component').then((m) => m.LayoutComponent),
     children: [
