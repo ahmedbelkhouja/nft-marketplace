@@ -56,13 +56,8 @@ export class LoginPage {
         error: (err) => {
           console.error('Login failed:', err);
 
-        },
-        error: (err) => {
-          console.error('Login error:', err);
-          if (err.error?.errors) {
-            this.backendErrors = err.error.errors;
-          }
         }
+       
       });
     }
   }
