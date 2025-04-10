@@ -10,7 +10,6 @@ export class AdminGuard implements CanActivate {
   canActivate(): Observable<boolean> {
     if (window.localStorage.getItem('userRole') === 'admin') {
       console.log('i am from adminGuald');
-      this.route.navigate(['private/admin']);
       return of(true);
     }
     // Redirect to the login route if the user is not logged in

@@ -68,9 +68,15 @@ export class AuthService {
         map((res: any) => {
           console.log('Signup response:', res);
           // Store the user data in local storage
-          window.localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(res));
           // Log the response
+          window.localStorage.setItem('token', res.token); // Store the JWT token in local storage
+          // Store the user data in local storage
 
+          const decodedToken: JwtPayload = jwtDecode(res.token); // Decode the JWT token
+          console.log('Decoded token:', decodedToken); // Log the decoded token
+          // Store the user ID and role in local storage
+          window.localStorage.setItem('userID', decodedToken.id);
+          window.localStorage.setItem('userRole', decodedToken.role);
           return res;
         }),
         catchError((error) => {

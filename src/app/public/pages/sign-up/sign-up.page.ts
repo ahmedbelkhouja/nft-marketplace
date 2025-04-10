@@ -81,7 +81,7 @@ export class SignUpPage {
         next: (res) => {
           if (res.success) alert('Sign up successful!');
           else alert('Sign up failed. Please try again.');
-          this.router.navigate(['/public/login']);
+          this.router.navigate(['/private']);
         },
         error: (err) => {
           console.error('Signup error:', err);

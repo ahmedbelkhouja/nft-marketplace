@@ -16,13 +16,8 @@ export class PublicGuard implements CanActivate {
     const getUserRole = window.localStorage.getItem('userRole');
     console.log(isAuthenticated);
     if (isAuthenticated == true) {
-      if (getUserRole === 'admin') {
-        this.route.navigate(['private/admin']);
-        return of(false);
-      } else if (getUserRole === 'user') {
-        this.route.navigate(['private/user']);
-        return of(false);
-      }
+      this.route.navigate([`private/${getUserRole}`]);
+      return of(false);
     }
     return of(true);
   }
