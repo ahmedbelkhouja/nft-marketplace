@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonSectionComponent } from 'src/app/shared/components/ui/common-section/common-section.component';
 import {PreviewCardComponent} from 'src/app/shared/components/ui/preview-card/preview-card.component';
-
+import { IonContent } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.page.html',
   styleUrls: ['./create.page.scss'],
   standalone: true,
-  imports: [ CommonModule, FormsModule , CommonSectionComponent, PreviewCardComponent],
+  imports: [IonContent,  CommonModule, FormsModule , CommonSectionComponent, PreviewCardComponent],
 })
 export class CreatePage implements OnInit {
   // Static preview data (unchanged)

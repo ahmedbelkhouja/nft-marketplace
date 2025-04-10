@@ -15,6 +15,13 @@ export const userRoutes: Routes = [
         pathMatch: 'full',
       },
       {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./pages/dashboard/dashboard.page').then(
+            (m) => m.DashboardPage
+          ),
+      },
+      {
         path: 'create',
         loadComponent: () =>
           import('./pages/create/create.page').then((m) => m.CreatePage),
