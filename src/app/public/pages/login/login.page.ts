@@ -47,18 +47,12 @@ export class LoginPage {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log('Form Submitted:', this.loginForm.value);
-
-      // Call the AuthService login method
       this.authService.login(this.loginForm.value).subscribe({
         next: (res) => {
           console.log('Login successful:', res);
-          // Handle successful login, e.g., navigate to another page
-          if (localStorage.getItem('role') === 'admin') {
-            this.router.navigate(['/private/admin']);
-          } else {
-            this.router.navigate(['/private/user']);
-          }
+        },
+        error: (err) => {
+          console.error('Login failed:', err);
         },
       });
     } else {

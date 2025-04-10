@@ -19,8 +19,8 @@ interface JwtPayload {
 })
 export class AuthService {
   private API_URL = 'http://localhost:3000';
-
-  constructor(private http: HttpClient) {}
+  private userRole: string | null = null;
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(userData: FormData) {
     return this.http
@@ -48,10 +48,12 @@ export class AuthService {
           // Log the user ID and role
           console.log('User ID:', decodedToken.id);
           console.log('User Role:', decodedToken.role);
+          this.router.navigate(['private/']);
           return res;
         }),
         catchError((error) => {
           console.error('Login error:', error);
+
           return throwError(() => error);
         })
       );
@@ -68,6 +70,7 @@ export class AuthService {
           // Store the user data in local storage
           window.localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(res));
           // Log the response
+
           return res;
         }),
         catchError((error) => {
@@ -82,6 +85,7 @@ export class AuthService {
     try {
       const decoded = jwtDecode<JwtPayload>(token);
       const isExpired = decoded.exp * 1000 < Date.now();
+
       if (isExpired) {
         console.error('Token is expired');
         return false;
