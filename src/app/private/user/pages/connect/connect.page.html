@@ -17,6 +17,13 @@
         </span>
         <h5>{{item.title}}</h5>
         <p>{{item.desc}}</p>
+        <button
+          *ngIf="item.title === 'Metamask'"
+          ion-button
+          (click)="connectWallet(item)"
+        >
+          Connect MetaMask
+        </button>
       </div>
     </div>
   </div>

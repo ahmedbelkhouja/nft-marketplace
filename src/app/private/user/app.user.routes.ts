@@ -15,6 +15,18 @@ export const userRoutes: Routes = [
         pathMatch: 'full',
       },
       {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./pages/dashboard/dashboard.page').then((m) => m.DashboardPage),
+      },
+      {
+        path: 'market',
+        loadComponent: () =>
+          import('../../shared/pages/market/market.page').then(
+            (m) => m.MarketPage
+          ),
+      },
+      {
         path: 'create',
         loadComponent: () =>
           import('./pages/create/create.page').then((m) => m.CreatePage),
