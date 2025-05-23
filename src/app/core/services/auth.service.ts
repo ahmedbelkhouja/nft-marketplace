@@ -112,5 +112,12 @@ export class AuthService {
     return decoded.role;
 
   }
+  addWallet(walletAddress: string) {
+    return this.http.patch(
+      `http://localhost:3000/api/users/connect-wallet`,
+      { walletAddress },
+      { withCredentials: true }
+    );
+  }
 }
 

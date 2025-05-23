@@ -1,13 +1,7 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>USER LAYOUT</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-private-navbar></app-private-navbar>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">USER LAYOUT</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+
 </ion-content>
