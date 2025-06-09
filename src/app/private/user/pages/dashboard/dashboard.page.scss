@@ -1,0 +1,16 @@
+.nft-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+app-nft-card {
+  /* Optional: Add a subtle shadow and border radius */
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border-radius: 1rem;
+  transition: transform 0.15s;
+}
+app-nft-card:hover {
+  transform: translateY(-4px) scale(1.02);
+}

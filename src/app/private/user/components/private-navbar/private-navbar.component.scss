@@ -1,41 +1,92 @@
-
 ion-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: transparent;
+  background: #181a20;
   border-bottom: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 0 1.5rem;
+  min-height: 64px;
 }
 
 ion-title {
   color: #fff;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
 }
 
 ion-buttons {
   display: flex;
-  justify-content: center;
-  flex: 1;
+  align-items: center;
+  gap: 1rem;
 }
 
 ion-button {
   color: #fff;
-  margin: 0 0.5rem;
+  font-weight: 500;
+  background: transparent;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
 }
 
 ion-button[fill="outline"] {
-  margin-left: auto;
   border: 1px solid #fff;
   color: #fff;
   background: transparent;
 }
 
-ion-button[fill="outline"]:hover {
+ion-button[fill="outline"]:hover,
+ion-button:hover {
   background: #fff;
-  color: #000;
+  color: #181a20;
 }
+
+.user-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 1rem;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: box-shadow 0.2s;
+}
+
+.user-avatar:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+
+span {
+  color: #fff;
+  font-weight: 500;
+  margin-left: 0.75rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
 .vertical-buttons {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Adds space between buttons */
+  gap: 10px;
+}
 
+ion-menu {
+  --background: #181a20;
+}
+
+@media (max-width: 768px) {
+  ion-toolbar {
+    padding: 0 0.5rem;
+    min-height: 56px;
+  }
+  .user-avatar {
+    width: 32px;
+    height: 32px;
+    margin-left: 0.5rem;
+  }
+  span {
+    font-size: 1rem;
+    margin-left: 0.5rem;
+  }
 }
