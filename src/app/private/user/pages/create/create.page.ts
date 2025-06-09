@@ -17,7 +17,6 @@ import { ethers } from 'ethers';
 })
 export class CreatePage implements OnInit {
   readonly CONTRACT_ADDRESS = "0x4Fd4014d8AfCEC9836529195C43D244251bE6B14";
-
   // Static preview data (unchanged)
   previewData = {
     id: '01',
@@ -54,6 +53,29 @@ export class CreatePage implements OnInit {
   ngOnInit() {
     // Initialize the formData imgUrl with the default image URL
     this.formData.imgUrl = this.previewData.imgUrl;
+
+    // Fetch user info for preview
+    const userID = localStorage.getItem('userID');
+    if (userID) {
+      fetch(`http://localhost:3000/api/users/${userID}`)
+        .then(res => res.json())
+        .then(user => {
+          // Update previewData with user info
+          this.previewData.creator = user.userName || 'Unknown';
+          console.log('User data:', user);
+          this.previewData.creatorImg = user.image
+            ? `http://localhost:3000/uploads/profiles/${user.image}` // or your actual image URL logic
+            : 'assets/images/ava-01.png';
+        })
+        .catch(() => {
+          this.previewData.creator = 'Unknown';
+          this.previewData.creatorImg = 'assets/images/ava-01.png';
+        });
+    }else{
+      console.warn('No user ID found in localStorage');
+      this.previewData.creator = 'Unknown';
+      this.previewData.creatorImg = 'assets/images/ava-01.png';
+    }
   }
 
   // Method to update the item image URL reactively
@@ -71,12 +93,28 @@ export class CreatePage implements OnInit {
 
   async createItem() {
     try {
-      // 1. Get the file from the input
+      // 1. Get the current user's ID (from localStorage, service, etc.)
+      const userID = localStorage.getItem('userID');
+      if (!userID) {
+        alert('User not logged in');
+        return;
+      }
+
+      // 2. Fetch user info from backend
+      const userRes = await fetch(`http://localhost:3000/api/users/${userID}`);
+      console.log('User response:', userRes);
+      if (!userRes.ok) {
+        alert('Failed to fetch user info');
+        return;
+      }
+      const user = await userRes.json();
+
+      // 3. Get the file from the input
       const fileInput = document.querySelector('#imgUrl') as HTMLInputElement;
       const file = fileInput.files?.[0];
       if (!file) return alert('No image selected');
 
-      // 2. Upload to Pinata using the HTTP API
+      // 4. Upload to Pinata using the HTTP API
       const formData = new FormData();
       formData.append('file', file);
 
@@ -92,19 +130,45 @@ export class CreatePage implements OnInit {
       const result = await response.json();
       const ipfsUrl = `ipfs://${result.IpfsHash}`;
 
+
+
       console.log('✅ Uploaded to IPFS via Pinata:', ipfsUrl);
 
-      // 3. Connect MetaMask
+      // 5. Connect MetaMask
       const provider = new ethers.BrowserProvider((window as any).ethereum);
       const signer = await provider.getSigner();
 
-      // 4. Mint NFT
+      // 6. Mint NFT
       const contract = new ethers.Contract(this.CONTRACT_ADDRESS, MYNFT, signer);
       const tx = await contract['mint'](ipfsUrl);
       await tx.wait();
 
       console.log('✅ NFT Minted:', tx.hash);
-      alert('NFT minted successfully!');
+
+      // 7. Save NFT to backend database
+      const nftData = {
+        UserId: userID,
+        title: this.formData.title,
+        description: this.formData.description,
+        price: this.formData.price,
+        image: ipfsUrl,
+        ownerName: user.userName,
+        ownerPfp: user.image
+          ? `http://localhost:3000/uploads/profiles/${user.image}`
+          : 'assets/images/ava-01.png',
+        walletAddress: await signer.getAddress(),
+        txHash: tx.hash,
+      };
+
+      const saveRes = await fetch('http://localhost:3000/api/nft/nfts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(nftData),
+      });
+
+      if (!saveRes.ok) throw new Error('Failed to save NFT to backend');
+      console.log('✅ NFT saved to backend!');
+      alert('NFT minted and saved successfully!');
     } catch (err) {
       console.error('❌ Error creating item:', err);
       alert('Failed to create item.');

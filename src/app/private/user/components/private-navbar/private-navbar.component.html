@@ -14,6 +14,19 @@
             <ion-button fill="outline" routerLink="add-wallet"
               >Connect Wallet</ion-button
             >
+            <img
+              [src]="formData.imgUrl"
+              alt="User Avatar"
+              class="user-avatar"
+            />
+            <span *ngIf="formData.name">Welcome {{ formData.name }}</span>
+          <ion-button
+              fill="clear"
+              (click)="logout()"
+              class="logout-button"
+            >
+              Logout
+            </ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>

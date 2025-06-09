@@ -1,13 +1,22 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>dashboard</ion-title>
-  </ion-toolbar>
-</ion-header>
+<h3>Your Own Nfts</h3>
+<div *ngIf="nfts.length === 0">
+  <p>No NFTs found.</p>
+  <p>Start creating your own NFTs now!</p>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">dashboard</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+</div>
+
+<div class="nft-list">
+
+  <app-nft-card *ngFor="let nft of nfts" [item]="{
+    id: nft._id,
+    title: nft.title,
+    desc: nft.description,
+    imgUrl: nft.image.startsWith('ipfs://') ? nft.image.replace('ipfs://', 'https://gateway.pinata.cloud/ipfs/') : nft.image,
+    creator: nft.ownerName,
+    creatorImg: nft.ownerPfp,
+    currentBid: nft.price
+  }"></app-nft-card>
+</div>
+<app-live-auction>  </app-live-auction>
+<app-seller-section></app-seller-section>
+<app-trending-section></app-trending-section>
