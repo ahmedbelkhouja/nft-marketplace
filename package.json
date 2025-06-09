@@ -28,6 +28,7 @@
     "@capacitor/keyboard": "7.0.0",
     "@capacitor/status-bar": "7.0.0",
     "@ionic/angular": "^8.4.3",
+    "@nftstorage/ipfs-cluster": "^5.0.1",
     "@reactivex/rxjs": "^6.6.7",
     "ethers": "^6.14.1",
     "event-marketplace": "file:",
